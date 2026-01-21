@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAZZE - Новая модель владения цифровым бизнесом</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="glitch-text" data-text="DRAZZE">DRAZZE</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-percentage" id="progressPercentage">0$</div>
+            </div>
+            <div class="loading-phrase" id="loadingPhrase">Прыгай, будущее за тобой</div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">DRAZZE<span class="logo-e">E</span></span>
+                </div>
+                <div class="nav-links">
+                    <a href="#about">О проекте</a>
+                    <a href="#tokenomics">Токеномика</a>
+                    <a href="#igaming">iGaming</a>
+                    <a href="#economy">Экономика</a>
+                    <a href="#stats">Статистика</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="animated-grid"></div>
+            <canvas id="particles-canvas"></canvas>
+        </div>
+        <div class="hero-content-wrapper">
+            <div class="hero-text">
+                <div class="hero-brand">
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-sentence" data-sentence="НОВАЯ МОДЕЛЬ">
+                        <span class="word">НОВАЯ</span> <span class="word">МОДЕЛЬ</span>
+                    </span>
+                    <span class="title-sentence" data-sentence="ВЛАДЕНИЯ ЦИФРОВЫМ">
+                        <span class="word">ВЛАДЕНИЯ</span> <span class="word">ЦИФРОВЫМ</span>
+                    </span>
+                    <span class="title-sentence highlight" data-sentence="БИЗНЕСОМ">
+                        <span class="word">БИЗНЕСОМ</span>
+                    </span>
+                </h1>
+                <div class="hero-center-content">
+                    <p class="hero-subtitle">
+                        <span class="typewriter-text" id="typewriter-text"></span>
+                        <span class="typewriter-cursor">|</span>
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn btn-primary">
+                            <span>Узнать больше</span>
+                            <div class="btn-shine"></div>
+                        </a>
+                        <a href="#tokenomics" class="btn btn-secondary">
+                            <span>Токеномика</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="logo-animation">
+                   
+                </div>
+                <div class="hero-visual-elements">
+                    <div class="visual-orb visual-orb-1"></div>
+                    <div class="visual-orb visual-orb-2"></div>
+                    <div class="visual-orb visual-orb-3"></div>
+                </div>
+            </div>
+            <div class="floating-elements">
+                <div class="floating-element float-1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                    </svg>
+                </div>
+                <div class="floating-element float-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </div>
+                <div class="floating-element float-3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="container">
+            <div class="features-grid-wrapper">
+                <div class="features-left">
+                    <div class="feature-card" data-tilt>
+                        <div class="border-runner"></div>
+                        <div class="card-glow"></div>
+                        <div class="feature-icon">
+                            <div class="icon-ring"></div>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                            <path d="M2 17L12 22L22 17"/>
+                            <path d="M2 12L12 17L22 12"/>
+                        </svg>
+                    </div>
+                    <h3>Передовые технологии</h3>
+                    <p>Инновационные решения на базе блокчейна для максимальной эффективности и безопасности</p>
+                    <div class="card-number">01</div>
+                </div>
+                <div class="feature-card" data-tilt>
+                    <div class="border-runner"></div>
+                    <div class="card-glow"></div>
+                    <div class="feature-icon">
+                        <div class="icon-ring"></div>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
+                            <path d="M12 6V12L16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Прозрачная экономика</h3>
+                    <p>Полная открытость всех процессов и транзакций для участников экосистемы</p>
+                    <div class="card-number">02</div>
+                </div>
+                </div>
+                <div class="features-center">
+                    <svg class="web-lines" viewBox="0 0 1000 600" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="webGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:rgba(99, 102, 241, 0.5);stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:rgba(139, 92, 246, 0.7);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:rgba(236, 72, 153, 0.5);stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <line class="web-line" x1="0" y1="100" x2="500" y2="300" stroke="url(#webGradient)"/>
+                        <line class="web-line" x1="0" y1="500" x2="500" y2="300" stroke="url(#webGradient)"/>
+                        <line class="web-line" x1="1000" y1="100" x2="500" y2="300" stroke="url(#webGradient)"/>
+                        <line class="web-line" x1="1000" y1="500" x2="500" y2="300" stroke="url(#webGradient)"/>
+                        <circle class="web-node" cx="500" cy="300" r="10" fill="url(#webGradient)"/>
+                    </svg>
+                    <h2 class="section-title">Основа DRAZZE</h2>
+                </div>
+                <div class="features-right">
+                    <div class="feature-card" data-tilt>
+                        <div class="border-runner"></div>
+                        <div class="card-glow"></div>
+                        <div class="feature-icon">
+                            <div class="icon-ring"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8C20.9996 7.64928 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64928 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z"/>
+                                <path d="M3.27002 6.96L12 12.01L20.73 6.96"/>
+                                <path d="M12 22.08V12"/>
+                            </svg>
+                        </div>
+                        <h3>Реальные продукты</h3>
+                        <p>Конкретные решения и платформы, создающие реальную ценность для пользователей</p>
+                        <div class="card-number">03</div>
+                    </div>
+                    <div class="feature-card" data-tilt>
+                        <div class="border-runner"></div>
+                        <div class="card-glow"></div>
+                        <div class="feature-icon">
+                            <div class="icon-ring"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"/>
+                                <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"/>
+                                <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13"/>
+                                <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88"/>
+                            </svg>
+                        </div>
+                        <h3>Активное сообщество</h3>
+                        <p>Сильное и вовлеченное сообщество, формирующее будущее платформы</p>
+                        <div class="card-number">04</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="tokenomics" id="tokenomics">
+        <div class="container">
+            <h2 class="section-title">Токеномика DRZ</h2>
+            <div class="tokenomics-content">
+                <div class="tokenomics-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value">200 млн</div>
+                        <div class="stat-label">Эмиссия токенов</div>
+                        <div class="stat-detail">Добыча в течение 3-4 лет через DeFi стейкинг</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value">15-22%</div>
+                        <div class="stat-label">Стейкинг в месяц</div>
+                        <div class="stat-detail">Доходность от стейкинга токенов</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value">11.10.2025</div>
+                        <div class="stat-label">Старт проекта</div>
+                        <div class="stat-detail">Дата запуска токена DRAZZE</div>
+                    </div>
+                </div>
+                <div class="staking-info">
+                    <div class="staking-header">
+                        <h3>DeFi Стейкинг</h3>
+                        <div class="staking-percentage">
+                            <div class="percentage-display">
+                                <span class="percentage-value" data-target="22">0</span>
+                                <span class="percentage-symbol">%</span>
+                            </div>
+                            <div class="percentage-label">Максимальная доходность</div>
+                        </div>
+                    </div>
+                    <p>Участвуйте в стейкинге токенов DRZ и получайте пассивный доход от 15% до 22% в месяц. Токены будут добываться постепенно в течение 3-4 лет через механизм DeFi стейкинга.</p>
+                    <div class="staking-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="75"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span>15%</span>
+                            <span>22%</span>
+                        </div>
+                    </div>
+                    <div class="staking-benefits">
+                        <div class="benefit-item">
+                            <div class="benefit-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span>Высокая доходность</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span>Безопасность блокчейна</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span>Прозрачность операций</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- iGaming Platform Section -->
+    <section class="igaming" id="igaming">
+        <div class="container">
+            <h2 class="section-title">Мы строим полноценную iGaming-платформу</h2>
+            <p class="section-subtitle">Токен DRZ будет применяться в одной из самых крупных ниш по оборотам</p>
+            <div class="igaming-grid">
+                <div class="igaming-card-large">
+                    <div class="large-card-icon" id="largeCardIcon">
+                        <svg class="icon-svg active" data-category="casino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="M21 15L16 10L5 21"/>
+                        </svg>
+                        <svg class="icon-svg" data-category="slots" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="6" width="20" height="12" rx="2"/>
+                            <path d="M6 10H8M10 10H12M14 10H16M6 14H8M10 14H12M14 14H16"/>
+                        </svg>
+                        <svg class="icon-svg" data-category="live" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V5C1 4.46957 1.21071 3.96086 1.58579 3.58579C1.96086 3.21071 2.46957 3 3 3H9L11 5H21C21.5304 5 22.0391 5.21071 22.4142 5.58579C22.7893 5.96086 23 6.46957 23 7V19Z"/>
+                            <circle cx="12" cy="13" r="3"/>
+                        </svg>
+                        <svg class="icon-svg" data-category="lottery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6V12L16 14"/>
+                        </svg>
+                        <svg class="icon-svg" data-category="poker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <path d="M9 9H15V15H9V9Z"/>
+                            <path d="M9 3V9M15 3V9M9 15V21M15 15V21"/>
+                        </svg>
+                        <svg class="icon-svg" data-category="sportsbook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                            <path d="M2 17L12 22L22 17"/>
+                            <path d="M2 12L12 17L22 12"/>
+                        </svg>
+                        <svg class="icon-svg" data-category="tournaments" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9V2H18V9M6 18H18M6 14H18"/>
+                            <path d="M12 9V22"/>
+                        </svg>
+                        <svg class="icon-svg" data-category="vip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <div class="rotating-text">
+                        <div class="text-item active" data-category="casino">Казино</div>
+                        <div class="text-item" data-category="slots">Слоты</div>
+                        <div class="text-item" data-category="live">Live-игры</div>
+                        <div class="text-item" data-category="lottery">Лотереи</div>
+                        <div class="text-item" data-category="poker">Poker</div>
+                        <div class="text-item" data-category="sportsbook">Sportsbook</div>
+                        <div class="text-item" data-category="tournaments">Турниры</div>
+                        <div class="text-item" data-category="vip">VIP-система</div>
+                    </div>
+                </div>
+            </div>
+            <div class="launch-info">
+                <div class="launch-card">
+                    <div class="launch-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
+                        </svg>
+                    </div>
+                    <div class="launch-content">
+                        <h3>Запуск платформы DRAZZE</h3>
+                        <p>Онлайн казино, ставки на спорт, карточные игры</p>
+                        <div class="launch-date">Февраль-Март 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economy Section -->
+    <section class="economy" id="economy">
+        <div class="container">
+            <h2 class="section-title">iGaming — сердце будущей экономики DRAZZE</h2>
+            <div class="economy-content">
+                <div class="economy-points">
+                    <div class="economy-point">
+                        <div class="point-number">1</div>
+                        <div class="point-content">
+                            <h3>Рынок оценивается более чем в $100 миллиардов</h3>
+                            <p>И растет с каждым годом, предоставляя огромные возможности для роста</p>
+                        </div>
+                    </div>
+                    <div class="economy-point">
+                        <div class="point-number">2</div>
+                        <div class="point-content">
+                            <h3>Один из самых стабильных и прибыльных секторов</h3>
+                            <p>На рынке с проверенной бизнес-моделью и постоянным спросом</p>
+                        </div>
+                    </div>
+                    <div class="economy-point">
+                        <div class="point-number">3</div>
+                        <div class="point-content">
+                            <h3>Постоянный оборот средств и высокая ликвидность</h3>
+                            <p>Обеспечивает стабильность и быстрый рост экосистемы</p>
+                        </div>
+                    </div>
+                    <div class="economy-point">
+                        <div class="point-number">4</div>
+                        <div class="point-content">
+                            <h3>Стабильный кэшфлоу, поддерживающий рост</h3>
+                            <p>Создает надежную основу для долгосрочного развития платформы</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="economy-summary">
+                    <p>iGaming становится ключевым финансовым движком экосистемы DRAZZE, обеспечивая стабильные потоки дохода для участников</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <h2 class="section-title">Статистика проекта</h2>
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"/>
+                            <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"/>
+                            <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13"/>
+                            <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88"/>
+                        </svg>
+                    </div>
+                    <div class="stats-value" data-target="11134">0</div>
+                    <div class="stats-label">Всего кошельков</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z"/>
+                            <path d="M16 21V13C16 11.8954 15.1046 11 14 11H10C8.89543 11 8 11.8954 8 13V21"/>
+                            <path d="M12 7V3"/>
+                            <path d="M6 3H18"/>
+                        </svg>
+                    </div>
+                    <div class="stats-value" data-target="4659">0</div>
+                    <div class="stats-label">Холдеров от 1 монеты</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Присоединяйтесь к сообществу</h2>
+            <div class="contact-links">
+                <a href="https://t.me/Drazze_official_chat" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.166 1.696-1.156 5.812-1.633 7.718-.204.975-.606 1.3-.996 1.334-.844.068-1.483-.561-2.302-1.099-1.27-.854-1.99-1.385-3.223-2.217-1.425-.96-.5-1.488.31-2.299.214-.214 3.919-3.592 3.992-3.897.008-.032.015-.15-.056-.212-.071-.062-.175-.041-.25-.025-.107.02-1.792 1.14-5.061 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.037.297.021.383z"/>
+                        </svg>
+                    </div>
+                    <h3>Чат компании</h3>
+                    <p>Общайтесь с сообществом</p>
+                </a>
+                <a href="https://t.me/Drazze_Official" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.166 1.696-1.156 5.812-1.633 7.718-.204.975-.606 1.3-.996 1.334-.844.068-1.483-.561-2.302-1.099-1.27-.854-1.99-1.385-3.223-2.217-1.425-.96-.5-1.488.31-2.299.214-.214 3.919-3.592 3.992-3.897.008-.032.015-.15-.056-.212-.071-.062-.175-.041-.25-.025-.107.02-1.792 1.14-5.061 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.037.297.021.383z"/>
+                        </svg>
+                    </div>
+                    <h3>Канал компании</h3>
+                    <p>Следите за новостями</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">DRAZZE<span class="logo-e">E</span></span>
+                </div>
+                <p class="footer-text">Новая модель владения цифровым бизнесом</p>
+                <p class="footer-copyright">&copy; 2025 DRAZZE. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
