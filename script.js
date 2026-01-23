@@ -68,39 +68,10 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Animate stats on scroll
+// Observer options for scroll animations
 const observerOptions = {
     threshold: 0.5,
     rootMargin: '0px'
-};
-
-const animateValue = (element, start, end, duration) => {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const currentValue = Math.floor(progress * (end - start) + start);
-        element.textContent = formatNumber(currentValue);
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        } else {
-            element.textContent = formatNumber(end);
-        }
-    };
-    window.requestAnimationFrame(step);
-};
-
-const formatNumber = (num) => {
-    if (num >= 1000000000) {
-        return '$' + (num / 1000000000).toFixed(2) + 'B';
-    }
-    if (num >= 1000000) {
-        return '$' + (num / 1000000).toFixed(2) + 'M';
-    }
-    if (num >= 1000) {
-        return (num / 1000).toFixed(0) + 'K';
-    }
-    return num.toString();
 };
 
 // Intersection Observer for fade-in animations
@@ -535,6 +506,130 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initFAQCategories);
 } else {
     initFAQCategories();
+}
+
+// Stats Counter Animation
+function animateValue(element, start, end, duration, prefix = '', suffix = '') {
+    let startTimestamp = null;
+    
+    // Easing function for smooth animation
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+    
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const elapsed = timestamp - startTimestamp;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Apply easing
+        const easedProgress = easeOutCubic(progress);
+        const current = Math.floor(easedProgress * (end - start) + start);
+        
+        // Format number with commas
+        const formatted = current.toLocaleString('en-US');
+        element.textContent = prefix + formatted + suffix;
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            // Ensure final value is set
+            const finalFormatted = end.toLocaleString('en-US');
+            element.textContent = prefix + finalFormatted + suffix;
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Initialize stats animation on page load
+function initStatsAnimation() {
+    const statValues = document.querySelectorAll('.stat-value[data-value]');
+    
+    if (statValues.length === 0) {
+        console.log('No stat values found');
+        return;
+    }
+    
+    statValues.forEach((statValue, index) => {
+        const targetValue = parseInt(statValue.getAttribute('data-value'), 10);
+        const prefix = statValue.getAttribute('data-prefix') || '';
+        const suffix = statValue.getAttribute('data-suffix') || '';
+        
+        if (isNaN(targetValue)) {
+            console.log('Invalid target value for stat:', statValue);
+            return;
+        }
+        
+        // Start animation with slight delay for each stat (faster animation - 1200ms)
+        setTimeout(() => {
+            animateValue(statValue, 0, targetValue, 1200, prefix, suffix);
+        }, index * 100);
+    });
+}
+
+// Run animation when page loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStatsAnimation);
+} else {
+    // DOM already loaded, run immediately
+    setTimeout(initStatsAnimation, 100);
+}
+
+// Staking Yield Animation
+function animateStakingYield() {
+    const yieldValue = document.querySelector('.staking-yield-value');
+    const progressFill = document.querySelector('.staking-progress-fill');
+    
+    if (!yieldValue || !progressFill) return;
+    
+    const startValue = parseInt(yieldValue.getAttribute('data-start'), 10);
+    const endValue = parseInt(yieldValue.getAttribute('data-end'), 10);
+    const duration = 2000;
+    let startTimestamp = null;
+    
+    const animate = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const elapsed = timestamp - startTimestamp;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+        const easedProgress = easeOutCubic(progress);
+        
+        const currentValue = Math.floor(startValue + (endValue - startValue) * easedProgress);
+        yieldValue.textContent = currentValue + '%';
+        
+        // Animate progress bar
+        const progressPercent = ((currentValue - startValue) / (endValue - startValue)) * 100;
+        progressFill.style.width = progressPercent + '%';
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(animate);
+        } else {
+            yieldValue.textContent = endValue + '%';
+            progressFill.style.width = '100%';
+        }
+    };
+    
+    // Use Intersection Observer to trigger animation when section is visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                window.requestAnimationFrame(animate);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    const stakingSection = document.querySelector('.staking-section');
+    if (stakingSection) {
+        observer.observe(stakingSection);
+    }
+}
+
+// Initialize staking yield animation
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateStakingYield);
+} else {
+    setTimeout(animateStakingYield, 100);
 }
 
 // Console message
