@@ -1,501 +1,778 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRAZZE - Новая модель владения цифровым бизнесом</title>
+    <title>Drazze - Native TON DeFi made simple</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <span class="glitch-text" data-text="DRAZZE">DRAZZE</span>
-            </div>
-            <div class="loading-progress">
-                <div class="progress-percentage" id="progressPercentage">0$</div>
-            </div>
-            <div class="loading-phrase" id="loadingPhrase">Прыгай, будущее за тобой</div>
-        </div>
-    </div>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <span class="logo-text">DRAZZE<span class="logo-e"></span></span>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-icon"></div>
+                <a href="#" class="logo">Drazze</a>
+            </div>
+            <div class="nav-divider"></div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link">Products</a>Got Questions?
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Learn</a>
+                <a href="#" class="nav-link">Tools</a>
+            </div>
+            <div class="nav-divider"></div>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <span class="globe-icon">🌐</span>
+                    <span>Eng</span>
                 </div>
-                <div class="nav-links">
-                    <a href="#about">О проекте</a>
-                    <a href="#tokenomics">Токеномика</a>
-                    <a href="#igaming">iGaming</a>
-                    <a href="#economy">Экономика</a>
-                    <a href="#stats">Статистика</a>
-                    <a href="#contact">Контакты</a>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-            <div class="animated-grid"></div>
-            <canvas id="particles-canvas"></canvas>
-        </div>
-        <div class="hero-content-wrapper">
-            <div class="hero-main-content">
-                <!-- Stylized DRAZZE Logo -->
-                <div class="hero-logo-stylized">
-                    <span class="logo-letter logo-d">D</span>
-                    <span class="logo-letter logo-r">R</span>
-                    <span class="logo-letter logo-a">A</span>
-                    <span class="logo-letter logo-z">Z</span>
-                    <span class="logo-letter logo-z">Z</span>
-                    <span class="logo-letter logo-e">E</span>
-                </div>
-                
-                <!-- Slogan Banner -->
-                <div class="hero-slogan-banner">
-                    <span class="slogan-text">WEB3-ЭКОСИСТЕМА НОВОГО ПОКОЛЕНИЯ НА TON</span>
-                </div>
-                
-                <!-- Keywords -->
-                <div class="hero-keywords">
-                    <span class="keyword">CRYPTO</span>
-                    <span class="keyword-separator">•</span>
-                    <span class="keyword">DEFI</span>
-                    <span class="keyword-separator">•</span>
-                    <span class="keyword">IGAMING</span>
-                    <span class="keyword-separator">•</span>
-                    <span class="keyword">COMMUNITY ECONOMY</span>
-                </div>
-                
-                <!-- Join Button -->
-                <a href="https://t.me/drazze_crypto_bot" target="_blank" rel="noopener noreferrer" class="hero-join-btn">
-                    <span class="join-btn-text">Присоединиться</span>
-                    <span class="join-btn-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z"/>
-                        </svg>
-                    </span>
-                    <div class="join-btn-shine"></div>
-                    <div class="join-btn-glow"></div>
-                </a>
+        <div class="stars-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Native TON DeFi</span>
+                <span class="title-line subtitle">made simple</span>
+            </h1>
+            <p class="hero-description">
+                Swap, provide liquidity, and farm TON-based tokens with lightning-fast speeds, minimal fees, and seamless Telegram integration — all while maintaining complete control of your assets.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary btn-large">Launch dApp Now</button>
+                <button class="btn-join btn-large">Join</button>
+                <button class="btn-buy btn-large">Buy</button>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+        <div class="moon-landscape">
+            <div class="moon-glow"></div>
+            <div class="astronaut">
+                <div class="astronaut-body"></div>
+                <div class="astronaut-helmet">
+                    <div class="cat-ears"></div>
+                </div>
+            </div>
+            <div class="astronaut-small"></div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-label">All-time volume</div>
+                <div class="stat-value">$6,803,991,618</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-label">Total value locked</div>
+                <div class="stat-value">$38,764,465</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-label">All-time swappers</div>
+                <div class="stat-value">5,786,122</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-label">All-time swaps</div>
+                <div class="stat-value">31,163,787</div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="about">
-        <div class="container">
-            <div class="features-grid-wrapper">
-                <div class="features-header">
-                    <h2 class="features-section-title">Фундамент экосистемы DRAZZE</h2>
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-graphic graphic-single">
+                    <div class="glow-dot blue"></div>
+                    <div class="dotted-halo"></div>
                 </div>
-                <div class="features-grid">
-                    <div class="feature-card" data-tilt>
-                        <div class="border-runner"></div>
-                        <div class="card-glow"></div>
-                        <div class="feature-icon">
-                            <div class="icon-ring"></div>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
-                                <path d="M2 17L12 22L22 17"/>
-                                <path d="M2 12L12 17L22 12"/>
-                            </svg>
-                        </div>
-                        <h3>Технологическая база</h3>
-                        <p>Инфраструктура на блокчейне TON, обеспечивающая скорость, безопасность и масштабируемость. Основа для работы продуктов и массового использования.</p>
-                        <div class="card-number">01</div>
-                    </div>
-                    <div class="feature-card" data-tilt>
-                        <div class="border-runner"></div>
-                        <div class="card-glow"></div>
-                        <div class="feature-icon">
-                            <div class="icon-ring"></div>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
-                                <path d="M12 6V12L16 14"/>
-                            </svg>
-                        </div>
-                        <h3>Прозрачная экономика</h3>
-                        <p>Все процессы в DRAZZE работают через смарт-контракты. Начисления, распределение токенов и участие в экосистеме происходят по заранее заданным правилам, без ручного управления.</p>
-                        <div class="card-number">02</div>
-                    </div>
-                    <div class="feature-card" data-tilt>
-                        <div class="border-runner"></div>
-                        <div class="card-glow"></div>
-                        <div class="feature-icon">
-                            <div class="icon-ring"></div>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8C20.9996 7.64928 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64928 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z"/>
-                                <path d="M3.27002 6.96L12 12.01L20.73 6.96"/>
-                                <path d="M12 22.08V12"/>
-                            </svg>
-                        </div>
-                        <h3>Web3 Продукты</h3>
-                        <p>DRAZZE создает и развивает востребованные рынком Web3 продукты с понятным спросом, интересом пользователей и потенциалом масштабирования.</p>
-                        <div class="card-number">03</div>
-                    </div>
-                    <div class="feature-card" data-tilt>
-                        <div class="border-runner"></div>
-                        <div class="card-glow"></div>
-                        <div class="feature-icon">
-                            <div class="icon-ring"></div>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"/>
-                                <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"/>
-                                <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13"/>
-                                <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88"/>
-                            </svg>
-                        </div>
-                        <h3>Активное сообщество</h3>
-                        <p>Сильное и вовлеченное сообщество, формирующее будущее платформы. Люди вовлечены в продукты, используют токен, участвуют в механиках и получают прямую выгоду от роста экосистемы.</p>
-                        <div class="card-number">04</div>
-                    </div>
+                <h3 class="feature-title">100% self-custody</h3>
+                <p class="feature-description">Your keys, your coins, always.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-graphic graphic-network">
+                    <svg class="network-svg" viewBox="0 0 200 200">
+                        <defs>
+                            <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/>
+                            </pattern>
+                        </defs>
+                        <path d="M 50 100 Q 100 50, 150 100" stroke="rgba(59,130,246,0.3)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 50 100 Q 100 150, 150 100" stroke="rgba(59,130,246,0.3)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 100 50 Q 150 100, 100 150" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 100 50 Q 50 100, 100 150" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <circle cx="50" cy="100" r="4" fill="#3b82f6" class="glow"/>
+                        <circle cx="100" cy="50" r="3" fill="rgba(255,255,255,0.8)" class="glow"/>
+                        <circle cx="150" cy="100" r="3" fill="rgba(255,255,255,0.8)" class="glow"/>
+                        <circle cx="100" cy="150" r="3" fill="rgba(255,255,255,0.8)" class="glow"/>
+                        <circle cx="75" cy="75" r="2.5" fill="rgba(255,255,255,0.6)" class="glow"/>
+                        <circle cx="125" cy="75" r="2.5" fill="rgba(255,255,255,0.6)" class="glow"/>
+                        <circle cx="75" cy="125" r="2.5" fill="rgba(255,255,255,0.6)" class="glow"/>
+                    </svg>
                 </div>
+                <h3 class="feature-title">5-6 second finality</h3>
+                <p class="feature-description">Beat the wait, capture opportunities instantly.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-graphic graphic-single">
+                    <div class="glow-dot blue"></div>
+                    <div class="dotted-halo"></div>
+                </div>
+                <h3 class="feature-title">Under $0.3 fees</h3>
+                <p class="feature-description">Keep rewards in your pocket, not gas fees.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-graphic graphic-network">
+                    <svg class="network-svg" viewBox="0 0 200 200">
+                        <path d="M 50 120 Q 100 80, 150 120" stroke="rgba(59,130,246,0.3)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 50 120 Q 100 160, 150 120" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 100 100 L 150 120" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <circle cx="50" cy="120" r="4" fill="#3b82f6" class="glow"/>
+                        <circle cx="100" cy="100" r="3" fill="rgba(255,255,255,0.8)" class="glow"/>
+                        <circle cx="150" cy="120" r="3" fill="rgba(255,255,255,0.8)" class="glow"/>
+                        <circle cx="75" cy="110" r="2.5" fill="rgba(255,255,255,0.6)" class="glow"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Exclusive farming</h3>
+                <p class="feature-description">Access TON opportunities others can't.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-graphic graphic-single">
+                    <div class="glow-dot blue"></div>
+                    <div class="dotted-halo"></div>
+                </div>
+                <h3 class="feature-title">Non-custodial access</h3>
+                <p class="feature-description">Connect your wallet and start immediately.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-graphic graphic-telegram">
+                    <svg class="telegram-svg" viewBox="0 0 200 200">
+                        <path d="M 100 60 L 140 100 L 120 140 L 80 120 L 60 160 L 100 140 Z" fill="#3b82f6" opacity="0.8" class="telegram-icon"/>
+                        <path d="M 50 100 Q 100 80, 150 100" stroke="rgba(59,130,246,0.3)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 50 100 Q 100 120, 150 100" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 100 60 L 140 100" stroke="rgba(59,130,246,0.3)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <path d="M 100 60 L 80 120" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                        <circle cx="50" cy="100" r="3" fill="#3b82f6" class="glow"/>
+                        <circle cx="100" cy="60" r="3" fill="#3b82f6" class="glow"/>
+                        <circle cx="150" cy="100" r="3" fill="rgba(255,255,255,0.8)" class="glow"/>
+                        <circle cx="80" cy="120" r="2.5" fill="rgba(255,255,255,0.6)" class="glow"/>
+                        <circle cx="120" cy="140" r="2.5" fill="rgba(255,255,255,0.6)" class="glow"/>
+                        <circle cx="75" cy="110" r="2" fill="rgba(255,255,255,0.5)" class="glow"/>
+                        <circle cx="125" cy="110" r="2" fill="rgba(255,255,255,0.5)" class="glow"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Telegram integrated</h3>
+                <p class="feature-description">Swap from your favorite messaging app.</p>
             </div>
         </div>
     </section>
 
-    <!-- Tokenomics Section -->
-    <section class="tokenomics" id="tokenomics">
-        <div class="container">
-            <h2 class="section-title">Токеномика DRAZZE</h2>
-            <div class="tokenomics-content">
-                <div class="tokenomics-top">
-                    <div class="tokenomics-main-stats">
-                        <div class="stat-card-large">
-                            <div class="stat-icon-large">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6"/>
-                                </svg>
-                            </div>
-                            <div class="stat-value-large">200 000 000</div>
-                            <div class="stat-label-large">Общая эмиссия монет</div>
-                        </div>
-                        <div class="stat-card-large">
-                            <div class="stat-icon-large">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
-                                    <path d="M12 6V12L16 14"/>
-                                    <path d="M8 12H16"/>
-                                </svg>
-                            </div>
-                            <div class="stat-value-large">90%</div>
-                            <div class="stat-label-large">Токенов вне рынка заблокированы или в стейкинге</div>
-                        </div>
-                    </div>
-                    <div class="tokenomics-distribution">
-                        <div class="distribution-header">
-                            <h3 class="distribution-title">ПЕРВИЧНАЯ ПРОДАЖА ТОКЕНОВ ЗАВЕРШИНА</h3>
-                        </div>
-                        <div class="distribution-grid">
-                            <div class="distribution-item">
-                                <div class="distribution-percentage">25%</div>
-                                <div class="distribution-label">Резервный пул ликвидность</div>
-                            </div>
-                            <div class="distribution-item">
-                                <div class="distribution-percentage">20%</div>
-                                <div class="distribution-label">Команда и развитие компании</div>
-                            </div>
-                            <div class="distribution-item">
-                                <div class="distribution-percentage">15%</div>
-                                <div class="distribution-label">Маркетинг трафик реклама</div>
-                            </div>
-                            <div class="distribution-item">
-                                <div class="distribution-percentage">15%</div>
-                                <div class="distribution-label">Бонусный пул активных участников</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tokenomics-facts">
-                    <h3 class="facts-title">Интересные факты</h3>
-                    <div class="facts-grid">
-                        <div class="fact-item">
-                            <div class="fact-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
-                                </svg>
-                            </div>
-                            <div class="fact-text">Начиная с 7 января 2026 года первое понижение на 3%</div>
-                        </div>
-                        <div class="fact-item">
-                            <div class="fact-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6"/>
-                                </svg>
-                            </div>
-                            <div class="fact-text">Добыча токена будет снижаться каждые 6 месяцев на 1%</div>
-                        </div>
-                        <div class="fact-item">
-                            <div class="fact-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                                </svg>
-                            </div>
-                            <div class="fact-text">Часть прибыли экосистемы идёт на выкуп и сжигание токенов</div>
-                        </div>
-                        <div class="fact-item">
-                            <div class="fact-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 6L6 18M6 6L18 18"/>
-                                </svg>
-                            </div>
-                            <div class="fact-text">Неиспользованные токены сжигаются</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="staking-info">
-                    <div class="staking-header">
-                        <h3>DeFi Стейкинг</h3>
-                        <div class="staking-percentage">
-                            <div class="percentage-display">
-                                <span class="percentage-value" data-target="22">0</span>
-                                <span class="percentage-symbol">%</span>
-                            </div>
-                            <div class="percentage-label">Максимальная доходность</div>
-                        </div>
-                    </div>
-                    <p>Участвуйте в стейкинге токенов DRZ и получайте пассивный доход от 15% до 22% в месяц. Токены будут добываться постепенно в течение 3-4 лет через механизм DeFi стейкинга.</p>
-                    <div class="staking-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" data-progress="75"></div>
-                        </div>
-                        <div class="progress-labels">
-                            <span>15%</span>
-                            <span>22%</span>
-                        </div>
-                    </div>
-                    <div class="staking-benefits">
-                        <div class="benefit-item">
-                            <div class="benefit-icon-wrapper">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            <span>Высокая доходность</span>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon-wrapper">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            <span>Безопасность блокчейна</span>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon-wrapper">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            <span>Прозрачность операций</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- iGaming Platform Section -->
-    <section class="igaming" id="igaming">
-        <div class="container">
-            <div class="igaming-content">
-                <div class="igaming-header">
-                    <div class="igaming-header-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+    <!-- DeFi Hub Section -->
+    <section class="defi-hub-section">
+        <div class="defi-hub-container">
+            <h2 class="defi-hub-title">
+                <span class="title-line-1">Finally, a DeFi hub</span>
+                <span class="title-line-2">built for TON enthusiasts like you</span>
+            </h2>
+            <p class="defi-hub-description">
+                If you're a crypto enthusiast who's been waiting for comprehensive DeFi opportunities on TON, your search ends here. Drazze brings together everything you need: native token access, lightning-fast execution, and sophisticated strategies — all in one seamless solution.
+            </p>
+            
+            <div class="defi-features-grid">
+                <div class="defi-feature-card">
+                    <h3 class="defi-feature-title">Native TON ecosystem access</h3>
+                    <p class="defi-feature-description">
+                        Explore 30,000+ TON-based tokens that major exchanges simply don't support. No bridges, no wrapped tokens, no compromises — just direct access to the TON ecosystem.
+                    </p>
+                    <div class="defi-feature-graphic graphic-coins">
+                        <svg class="coins-svg" viewBox="0 0 300 200">
+                            <defs>
+                                <linearGradient id="coinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9" />
+                                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.7" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <path d="M 80 100 Q 150 60, 220 100" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <circle cx="80" cy="100" r="2" fill="#3b82f6" class="glow-dot"/>
+                            <circle cx="150" cy="60" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            <circle cx="220" cy="100" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            
+                            <g class="coin-left">
+                                <circle cx="80" cy="100" r="35" fill="url(#coinGradient)" filter="url(#glow)"/>
+                                <path d="M 80 75 L 80 125 M 65 100 L 95 100" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <path d="M 80 85 L 80 115" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+                            </g>
+                            
+                            <g class="coin-right">
+                                <circle cx="220" cy="100" r="35" fill="url(#coinGradient)" filter="url(#glow)"/>
+                                <rect x="200" y="80" width="20" height="20" transform="rotate(45 210 90)" fill="rgba(255,255,255,0.3)"/>
+                                <rect x="205" y="85" width="10" height="10" transform="rotate(45 210 90)" fill="rgba(255,255,255,0.5)"/>
+                            </g>
                         </svg>
                     </div>
-                    <h2 class="igaming-title">DRAZZE — лицензированный iGaming-проект на этапе запуска</h2>
+                </div>
+
+                <div class="defi-feature-card">
+                    <h3 class="defi-feature-title">Sophisticated strategies</h3>
+                    <p class="defi-feature-description">
+                        Combine active swapping with liquidity provision and farming programs. Design your own multi-layered approach to maximize rewards while maintaining full control of your assets.
+                    </p>
+                    <div class="defi-feature-graphic graphic-network-complex">
+                        <svg class="network-complex-svg" viewBox="0 0 300 200">
+                            <defs>
+                                <linearGradient id="coinGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9" />
+                                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.7" />
+                                </linearGradient>
+                                <filter id="glow2">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <path d="M 50 80 L 150 50" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <path d="M 50 100 L 150 70" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <path d="M 50 120 L 150 90" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <path d="M 150 50 L 250 80" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <path d="M 150 70 L 250 100" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <path d="M 150 90 L 250 120" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <path d="M 50 100 L 150 70" stroke="rgba(59,130,246,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                            <path d="M 150 70 L 250 100" stroke="rgba(59,130,246,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+                            
+                            <g class="coin-stack-left">
+                                <circle cx="50" cy="80" r="18" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                                <circle cx="50" cy="100" r="18" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                                <circle cx="50" cy="120" r="18" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                            </g>
+                            
+                            <g class="coin-stack-center">
+                                <circle cx="150" cy="50" r="15" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                                <circle cx="150" cy="70" r="15" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                                <circle cx="150" cy="90" r="15" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                            </g>
+                            
+                            <g class="coin-stack-right">
+                                <circle cx="250" cy="80" r="18" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                                <circle cx="250" cy="100" r="18" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                                <circle cx="250" cy="120" r="18" fill="url(#coinGradient2)" filter="url(#glow2)"/>
+                            </g>
+                            
+                            <circle cx="50" cy="80" r="2" fill="#3b82f6" class="glow-dot"/>
+                            <circle cx="50" cy="100" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            <circle cx="50" cy="120" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            <circle cx="150" cy="50" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            <circle cx="150" cy="70" r="2" fill="#3b82f6" class="glow-dot"/>
+                            <circle cx="150" cy="90" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            <circle cx="250" cy="80" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            <circle cx="250" cy="100" r="2" fill="#3b82f6" class="glow-dot"/>
+                            <circle cx="250" cy="120" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="defi-feature-card">
+                    <h3 class="defi-feature-title">Telegram-native experience</h3>
+                    <p class="defi-feature-description">
+                        Connect your TON/Telegram wallet instantly and start swapping. No complex setups, no learning curve — just the smooth, intuitive experience you'd expect from a solution built for the TON community.
+                    </p>
+                    <div class="defi-feature-graphic graphic-telegram-sphere">
+                        <svg class="telegram-sphere-svg" viewBox="0 0 300 200">
+                            <defs>
+                                <linearGradient id="sphereGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9" />
+                                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.7" />
+                                </linearGradient>
+                                <filter id="glow3">
+                                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <circle cx="150" cy="100" r="50" fill="url(#sphereGradient)" filter="url(#glow3)"/>
+                            <path d="M 130 90 L 150 110 L 170 90" stroke="rgba(255,255,255,0.9)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M 130 90 L 150 100 L 130 110" stroke="rgba(255,255,255,0.9)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <circle cx="100" cy="80" r="25" fill="url(#sphereGradient)" filter="url(#glow3)" opacity="0.8"/>
+                            <circle cx="200" cy="80" r="25" fill="url(#sphereGradient)" filter="url(#glow3)" opacity="0.8"/>
+                            
+                            <path d="M 150 100 Q 100 80, 100 80" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            <path d="M 150 100 Q 200 80, 200 80" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            
+                            <circle cx="100" cy="80" r="2" fill="#3b82f6" class="glow-dot"/>
+                            <circle cx="150" cy="100" r="2" fill="#3b82f6" class="glow-dot"/>
+                            <circle cx="200" cy="80" r="2" fill="rgba(255,255,255,0.6)" class="glow-dot"/>
+                            <circle cx="120" cy="70" r="1.5" fill="rgba(255,255,255,0.5)" class="glow-dot"/>
+                            <circle cx="180" cy="70" r="1.5" fill="rgba(255,255,255,0.5)" class="glow-dot"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="partners-container">
+            <div class="partners-badges">
+                <div class="badge badge-primary">
+                    <div class="badge-icon"></div>
+                    <span class="badge-text">#1 Exchanges DEX in TON App</span>
+                </div>
+                <div class="badge badge-trustpilot">
+                    <div class="trustpilot-content">
+                        <span class="trustpilot-text">Trustpilot Excellent 4.3</span>
+                        <div class="stars">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="partners-title">Trusted by leading partners</h2>
+            
+            <div class="partners-marquee-wrapper">
+                <div class="partners-marquee">
+                    <div class="partner-logo">1inch NETWORK</div>
+                    <div class="partner-logo">getgems</div>
+                    <div class="partner-logo">BINANCE</div>
+                    <div class="partner-logo">OKX</div>
+                    <div class="partner-logo">TOP</div>
+                    <div class="partner-logo">Bitget Wallet</div>
+                    <div class="partner-logo">ONTO</div>
+                    <div class="partner-logo">1inch NETWORK</div>
+                    <div class="partner-logo">getgems</div>
+                    <div class="partner-logo">BINANCE</div>
+                    <div class="partner-logo">OKX</div>
+                    <div class="partner-logo">TOP</div>
+                    <div class="partner-logo">Bitget Wallet</div>
+                    <div class="partner-logo">ONTO</div>
+                </div>
+            </div>
+            
+            <button class="btn-partners">All partners ></button>
+        </div>
+    </section>
+
+    <!-- Three Ways Section -->
+    <section class="three-ways-section">
+        <div class="wave-background"></div>
+        <div class="three-ways-container">
+            <div class="three-ways-header">
+                <h2 class="three-ways-title">Three ways to win with Drazze</h2>
+                <p class="three-ways-description">
+                    Whether you're swapping, building, or providing liquidity, Drazze has the tools and opportunities designed specifically for your goals.
+                </p>
+            </div>
+            
+            <div class="three-ways-layout">
+                <div class="way-card-left fade-in-up">
+                    <div class="way-label">For liquidity providers</div>
+                    <h3 class="way-card-title">Put your liquidity to work</h3>
+                    <p class="way-card-description">Provide liquidity to pools and receive fees on swaps.</p>
+                    <button class="way-button">Provide liquidity ></button>
+                    <div class="liquidity-metrics-card">
+                        <div class="token-pair-selector">
+                            <span>TON / Drazze</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </div>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-label">TVL</div>
+                                <div class="metric-value">$394 234</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Volume 24h</div>
+                                <div class="metric-value">$4 372</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">APY 30d</div>
+                                <div class="metric-value green">26%</div>
+                            </div>
+                        </div>
+                        <button class="add-liquidity-btn">Add liquidity</button>
+                    </div>
+                </div>
+
+                <div class="way-card-right fade-in-up">
+                    <div class="token-info-header">
+                        <div class="token-name-price">
+                            <span class="token-symbol">Drazze</span>
+                            <span class="token-price">$1.3635</span>
+                        </div>
+                        <div class="token-change">
+                            <div class="change-amount">+$0.00313 · Today</div>
+                            <div class="change-percent red">-0.23%</div>
+                        </div>
+                    </div>
+                    <div class="price-chart-container">
+                        <svg class="price-chart" viewBox="0 0 400 200">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                            <polyline points="0,180 50,160 100,140 150,120 200,100 250,110 300,90 350,80 400,70" 
+                                      stroke="#3b82f6" stroke-width="2" fill="none"/>
+                            <polygon points="0,180 50,160 100,140 150,120 200,100 250,110 300,90 350,80 400,70 400,200 0,200" 
+                                     fill="url(#chartGradient)"/>
+                            <circle cx="100" cy="140" r="4" fill="#3b82f6"/>
+                            <text x="100" y="130" fill="rgba(255,255,255,0.6)" font-size="10" text-anchor="middle">$0.69</text>
+                            <text x="100" y="155" fill="rgba(255,255,255,0.5)" font-size="8" text-anchor="middle">Jul 9, 23</text>
+                            <text x="0" y="195" fill="rgba(255,255,255,0.5)" font-size="10">Jul 7</text>
+                            <text x="130" y="195" fill="rgba(255,255,255,0.5)" font-size="10">Jul 11</text>
+                            <text x="260" y="195" fill="rgba(255,255,255,0.5)" font-size="10">Jul 15</text>
+                            <text x="330" y="195" fill="rgba(255,255,255,0.5)" font-size="10">Jul 19</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap-section">
+        <div class="roadmap-container">
+            <h2 class="roadmap-title">What the future holds</h2>
+            
+            <div class="roadmap-timeline-header">
+                <span class="timeline-label-left">We are here</span>
+                <div class="timeline-line"></div>
+                <span class="timeline-label-right">Our future</span>
+            </div>
+            
+            <div class="roadmap-slider-wrapper">
+                <button class="roadmap-arrow roadmap-arrow-left" id="roadmapPrev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                
+                <div class="roadmap-slider" id="roadmapSlider">
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q1 2026</div>
+                            <h3 class="roadmap-item-title">Escrow Swaps</h3>
+                            <p class="roadmap-item-desc">using private liquidity for improved price performance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q2 2026</div>
+                            <h3 class="roadmap-item-title">Protocol Upgrade v3</h3>
+                            <p class="roadmap-item-desc">Next-generation protocol with concentrated liquidity support.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q2 2026</div>
+                            <h3 class="roadmap-item-title">API v2</h3>
+                            <p class="roadmap-item-desc">gRPC-native, high-performance API for easier and faster integrations, optimized for AI-assisted development.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q2 2026</div>
+                            <h3 class="roadmap-item-title">Cross-Chain Closed Alpha</h3>
+                            <p class="roadmap-item-desc">Cross-chain swaps available for early technical integrations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q2 2026</div>
+                            <h3 class="roadmap-item-title">Cross-Chain Beta</h3>
+                            <p class="roadmap-item-desc">Public beta of TON ↔ TRON swaps.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q3 2026</div>
+                            <h3 class="roadmap-item-title">Partner Fee Management Tools</h3>
+                            <p class="roadmap-item-desc">Streamlined fee operations for partners.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q3 2026</div>
+                            <h3 class="roadmap-item-title">AI-Powered DeFi Features</h3>
+                            <p class="roadmap-item-desc">Currently in stealth development.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q4 2026</div>
+                            <h3 class="roadmap-item-title">Cross-Chain Release</h3>
+                            <p class="roadmap-item-desc">Public release of TON ↔ TRON cross-chain swaps with multichain liquidity aggregation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q1 2027</div>
+                            <h3 class="roadmap-item-title">Cross-Chain Widget</h3>
+                            <p class="roadmap-item-desc">One-click integration of the widget with cross-chain support.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-slide">
+                        <div class="roadmap-circle">
+                            <div class="roadmap-quarter">Q1 2027</div>
+                            <h3 class="roadmap-item-title">Multi-Chain Expansion</h3>
+                            <p class="roadmap-item-desc">Expansion to additional blockchains.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="igaming-info-card">
-                    <div class="info-section">
-                        <div class="info-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
-                            </svg>
-                        </div>
-                        <div class="info-content">
-                            <h3 class="info-title">Официальная лицензия</h3>
-                            <p class="info-text">Компания <strong>Drazze Limited</strong> получила официальную лицензию на ведение iGaming-деятельности (casino, betting, gaming), действующую в <strong>2025–2026 годах</strong> и внесённую в государственный реестр регулятора <strong>Анжуана</strong>. Лицензию можно проверить напрямую в официальном реестре.</p>
+                <button class="roadmap-arrow roadmap-arrow-right" id="roadmapNext">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="roadmap-indicators" id="roadmapIndicators"></div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <div class="security-container">
+            <div class="security-content">
+                <h2 class="security-title">
+                    <span class="title-line">Security architecture</span>
+                    <span class="title-line">you can trust</span>
+                </h2>
+            </div>
+            
+            <div class="security-cards-wrapper">
+                <div class="security-cards-slider" id="securityCardsSlider">
+                    <div class="security-card">
+                        <h3 class="security-card-title">100% self-custodial</h3>
+                        <p class="security-card-text">
+                            Your private keys never leave your wallet. Every transaction is signed by you, every asset remains under your control. Drazze can't access your funds, freeze your account, or restrict your operations — because Drazze never has custody in the first place.
+                        </p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <h3 class="security-card-title">Open-source & auditable</h3>
+                        <p class="security-card-text">
+                            All smart contracts are publicly available on the TON blockchain. Third-party audits have been completed, and the code is continuously reviewed by the community. No hidden functions, no backdoors, no surprises.
+                        </p>
+                        <div class="security-graphic">
+                            <div class="glowing-sphere">
+                                <div class="sphere-core"></div>
+                                <div class="sphere-ring"></div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="info-section">
-                        <div class="info-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
-                                <path d="M2 17L12 22L22 17"/>
-                                <path d="M2 12L12 17L22 12"/>
-                            </svg>
-                        </div>
-                        <div class="info-content">
-                            <h3 class="info-title">Стадия разработки</h3>
-                            <p class="info-text">Проект находится в стадии активной разработки: инфраструктура готова, идёт интеграция <strong>более 100+ топовых игровых провайдеров</strong> и формирование платформы.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-section">
-                        <div class="info-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6"/>
-                            </svg>
-                        </div>
-                        <div class="info-content">
-                            <h3 class="info-title">Экономика экосистемы</h3>
-                            <p class="info-text">Экономика экосистемы строится вокруг токена <strong>DRZ</strong>, который используется внутри iGaming-модели для <strong>ставок, бонусов, стейкинга и участия в доходах платформы</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="launch-info">
-                <div class="launch-card">
-                    <div class="launch-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
-                        </svg>
-                    </div>
-                    <div class="launch-content">
-                        <h3>Запуск платформы DRAZZE</h3>
-                        <p>Онлайн казино, ставки на спорт, карточные игры</p>
-                        <div class="launch-date">Февраль-Март 2026</div>
+                    <div class="security-card">
+                        <h3 class="security-card-title">Built-in protection mechanisms</h3>
+                        <ul class="security-list">
+                            <li>Smart slippage protection prevents unfavorable swaps</li>
+                            <li>Impermanent loss protection feature</li>
+                            <li>Gas estimation shows costs before confirmation</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Economy Section -->
-    <section class="economy" id="economy">
-        <div class="container">
-            <h2 class="section-title">iGaming — сердце будущей экономики DRAZZE</h2>
-            <div class="economy-content">
-                <div class="economy-points">
-                    <div class="economy-point">
-                        <div class="point-number">1</div>
-                        <div class="point-content">
-                            <h3>Рынок оценивается более чем в $100 миллиардов</h3>
-                            <p>И растет с каждым годом, предоставляя огромные возможности для роста</p>
-                        </div>
-                    </div>
-                    <div class="economy-point">
-                        <div class="point-number">2</div>
-                        <div class="point-content">
-                            <h3>Один из самых стабильных и прибыльных секторов</h3>
-                            <p>На рынке с проверенной бизнес-моделью и постоянным спросом</p>
-                        </div>
-                    </div>
-                    <div class="economy-point">
-                        <div class="point-number">3</div>
-                        <div class="point-content">
-                            <h3>Постоянный оборот средств и высокая ликвидность</h3>
-                            <p>Обеспечивает стабильность и быстрый рост экосистемы</p>
-                        </div>
-                    </div>
-                    <div class="economy-point">
-                        <div class="point-number">4</div>
-                        <div class="point-content">
-                            <h3>Стабильный кэшфлоу, поддерживающий рост</h3>
-                            <p>Создает надежную основу для долгосрочного развития платформы</p>
-                        </div>
-                    </div>
+    <!-- Audited Smart Contract Section -->
+    <section class="audited-section">
+        <div class="audited-container">
+            <div class="cosmic-orbit">
+                <!-- Orbital planets -->
+                <div class="orbital-planet planet-1">
+                    <div class="planet-striped"></div>
+                    <div class="planet-moon moon-1"></div>
                 </div>
-                <div class="economy-summary">
-                    <p>iGaming становится ключевым финансовым движком экосистемы DRAZZE, обеспечивая стабильные потоки дохода для участников</p>
+                
+                <div class="orbital-planet planet-2">
+                    <div class="planet-dot"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="stats" id="stats">
-        <div class="container">
-            <h2 class="section-title">Статистика проекта</h2>
-            <div class="stats-grid">
-                <div class="stats-card">
-                    <div class="stats-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"/>
-                            <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"/>
-                            <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13"/>
-                            <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88"/>
-                        </svg>
-                    </div>
-                    <div class="stats-value" data-target="11134">0</div>
-                    <div class="stats-label">Всего кошельков</div>
+                
+                <div class="orbital-planet planet-3">
+                    <div class="planet-textured"></div>
+                    <div class="planet-moon moon-2"></div>
                 </div>
-                <div class="stats-card">
-                    <div class="stats-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z"/>
-                            <path d="M16 21V13C16 11.8954 15.1046 11 14 11H10C8.89543 11 8 11.8954 8 13V21"/>
-                            <path d="M12 7V3"/>
-                            <path d="M6 3H18"/>
-                        </svg>
+                
+                <div class="orbital-planet planet-4">
+                    <div class="planet-crescent"></div>
+                    <div class="planet-moon moon-3"></div>
+                </div>
+                
+                <div class="orbital-planet planet-5">
+                    <div class="planet-textured"></div>
+                    <div class="planet-moon moon-4"></div>
+                </div>
+                
+                <div class="orbital-planet planet-6">
+                    <div class="planet-dot"></div>
+                </div>
+                
+                <!-- Central orb with DRAZZE logo -->
+                <div class="central-orb">
+                    <div class="orb-glow"></div>
+                    <div class="orb-content">
+                        <div class="drazze-logo-circle">
+                            <div class="logo-large-d-outline">D</div>
+                            <div class="logo-text-neon">DRAZZE</div>
+                        </div>
                     </div>
-                    <div class="stats-value" data-target="4659">0</div>
-                    <div class="stats-label">Холдеров от 1 монеты</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Присоединяйтесь к сообществу</h2>
-            <div class="contact-links">
-                <a href="https://t.me/Drazze_official_chat" target="_blank" rel="noopener noreferrer" class="contact-card">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.166 1.696-1.156 5.812-1.633 7.718-.204.975-.606 1.3-.996 1.334-.844.068-1.483-.561-2.302-1.099-1.27-.854-1.99-1.385-3.223-2.217-1.425-.96-.5-1.488.31-2.299.214-.214 3.919-3.592 3.992-3.897.008-.032.015-.15-.056-.212-.071-.062-.175-.041-.25-.025-.107.02-1.792 1.14-5.061 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.037.297.021.383z"/>
-                        </svg>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-main-title">
+                <span class="faq-title-line">Got Questions?</span>
+                <span class="faq-title-line">We've Got Answers</span>
+            </h2>
+            
+            <div class="faq-categories">
+                <div class="faq-category-item">
+                    <div class="faq-category-header">
+                        <div class="faq-category-info">
+                            <h3 class="faq-category-title">Getting Started</h3>
+                            <p class="faq-category-desc">For newcomers to Drazze or DeFi</p>
+                        </div>
+                        <span class="faq-category-icon">+</span>
                     </div>
-                    <h3>Чат компании</h3>
-                    <p>Общайтесь с сообществом</p>
-                </a>
-                <a href="https://t.me/Drazze_Official" target="_blank" rel="noopener noreferrer" class="contact-card">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.166 1.696-1.156 5.812-1.633 7.718-.204.975-.606 1.3-.996 1.334-.844.068-1.483-.561-2.302-1.099-1.27-.854-1.99-1.385-3.223-2.217-1.425-.96-.5-1.488.31-2.299.214-.214 3.919-3.592 3.992-3.897.008-.032.015-.15-.056-.212-.071-.062-.175-.041-.25-.025-.107.02-1.792 1.14-5.061 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.037.297.021.383z"/>
-                        </svg>
+                </div>
+                
+                <div class="faq-category-item">
+                    <div class="faq-category-header">
+                        <div class="faq-category-info">
+                            <h3 class="faq-category-title">Using Drazze</h3>
+                            <p class="faq-category-desc">For active users who want to understand features</p>
+                        </div>
+                        <span class="faq-category-icon">+</span>
                     </div>
-                    <h3>Канал компании</h3>
-                    <p>Следите за новостями</p>
-                </a>
+                </div>
+                
+                <div class="faq-category-item active">
+                    <div class="faq-category-header">
+                        <div class="faq-category-info">
+                            <h3 class="faq-category-title">Liquidity & Rewards</h3>
+                            <p class="faq-category-desc">For users considering providing liquidity</p>
+                        </div>
+                        <span class="faq-category-icon">+</span>
+                    </div>
+                </div>
+                
+                <div class="faq-category-item">
+                    <div class="faq-category-header">
+                        <div class="faq-category-info">
+                            <h3 class="faq-category-title">Advanced Strategies & Risks</h3>
+                            <p class="faq-category-desc">For experienced users managing complex positions</p>
+                        </div>
+                        <span class="faq-category-icon">+</span>
+                    </div>
+                </div>
+                
+                <div class="faq-category-item">
+                    <div class="faq-category-header">
+                        <div class="faq-category-info">
+                            <h3 class="faq-category-title">Technical & Security</h3>
+                            <p class="faq-category-desc">For developers and security-conscious users</p>
+                        </div>
+                        <span class="faq-category-icon">+</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
                 <div class="footer-logo">
-                    <span class="logo-text">DRAZZE<span class="logo-e">E</span></span>
+                    <div class="footer-logo-icon"></div>
+                    <span class="footer-logo-text">Drazze</span>
                 </div>
-                <p class="footer-text">Новая модель владения цифровым бизнесом</p>
-                <p class="footer-copyright">&copy; 2025 DRAZZE. Все права защищены.</p>
+                <div class="footer-language">
+                    <span class="globe-icon">🌐</span>
+                    <span>Eng</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <p class="footer-description">Instantly swap Toncoin for any coin or token at the best rate</p>
+            </div>
+            
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Swap</a></li>
+                        <li><a href="#">Pools</a></li>
+                        <li><a href="#">Impermanent loss calculator</a></li>
+                        <li><a href="#">APR calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Drazze</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">User guide</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Whitepaper</a></li>
+                        <li><a href="#">Press room</a></li>
+                        <li><a href="#">Brand kit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Developers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Grant program</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Telegram</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
@@ -503,4 +780,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
