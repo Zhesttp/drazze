@@ -18,6 +18,7 @@ if (menuToggle && navMenu) {
 }
 
 // FAQ Accordion
+function initFAQ() {
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
@@ -43,6 +44,14 @@ faqItems.forEach(item => {
         });
     }
 });
+}
+
+// Initialize FAQ when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+} else {
+    initFAQ();
+}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -126,15 +135,15 @@ if (newsletterForm) {
 const translations = {
     en: {
         nav: {
-            products: "Products",
-            about: "About",
-            learn: "Learn",
-            tools: "Tools"
+            foundation: "Foundation",
+            tokenomics: "Tokenomics",
+            igaming: "iGaming",
+            pools: "Pools",
+            faq: "FAQ"
         },
         hero: {
-            title: "DRAZZE SYSTEM",
+            title: "DRAZZE",
             subtitle: "NEXT-GENERATION WEB3 ECOSYSTEM ON TON",
-            description: "Swap, provide liquidity, and farm TON-based tokens with lightning-fast speeds, minimal fees, and seamless Telegram integration — all while maintaining complete control of your assets.",
             join: "Join",
             buy: "Buy"
         },
@@ -145,6 +154,7 @@ const translations = {
             allTimeSwaps: "All-time swaps"
         },
         features: {
+            sectionTitle: "Foundation of DRAZZE Ecosystem",
             title1: "Technological Base",
             desc1: "Infrastructure on the TON blockchain, ensuring speed, security, and scalability. The foundation for product operation and mass adoption.",
             title2: "Transparent Economy",
@@ -162,10 +172,10 @@ const translations = {
             teamDev: "Team and Company Development",
             marketing: "Marketing, Traffic, Advertising",
             bonusPool: "Bonus Pool for Active Participants",
-            saleCompleted: "Primary token sale completed"
+            saleCompleted: "Primary token sale completed 13.11.2025"
         },
         facts: {
-            title: "Interesting Facts",
+            title: "Deflationary Token Model",
             fact1: "Starting from January 7, 2026, the first reduction by 3%",
             fact2: "Token mining will decrease by 1% every 6 months",
             fact3: "Part of the ecosystem's profit goes to token buyback and burning",
@@ -182,6 +192,7 @@ const translations = {
         igaming: {
             title: "DRAZZE",
             subtitle: "Licensed iGaming Project at Launch Stage",
+            certificate: "Certificate",
             licenseTitle: "Official License",
             licenseText: "Drazze Limited received an official license to conduct iGaming activities (casino, betting, gaming), valid in 2025-2026 and entered into the state register of the Anjouan regulator. The license can be checked directly in the official register.",
             devTitle: "Development Stage",
@@ -199,10 +210,15 @@ const translations = {
             feature4Title: "Stable cash flow supporting growth",
             feature4Text: "Creates a reliable foundation for long-term platform development",
             conclusion: "iGaming becomes a key financial driver of the DRAZZE ecosystem, ensuring stable revenue streams for participants",
-            launchTitle: "DRAZZE Platform Launch",
-            launch1: "Online casino",
-            launch2: "Sports betting",
-            launch3: "Card games",
+            gamesTitle: "Game Categories",
+            category1: "Casino",
+            category2: "Slots",
+            category3: "Live Games",
+            category4: "Lotteries",
+            category5: "Poker",
+            category6: "Sportsbook",
+            category7: "Tournaments",
+            category8: "VIP System",
             launchDate: "February-March 2026"
         },
         partners: {
@@ -211,46 +227,61 @@ const translations = {
         threeWays: {
             title: "Three ways to win with Drazze",
             description: "Whether you're swapping, building, or providing liquidity, Drazze has the tools and opportunities designed specifically for your goals.",
-            liquidityLabel: "For liquidity providers",
-            liquidityTitle: "Put your liquidity to work",
-            liquidityDesc: "Provide liquidity to pools and receive fees on swaps.",
-            liquidityBtn: "Provide liquidity >",
-            addLiquidity: "Add liquidity",
-            today: "Today"
-        },
-        roadmap: {
-            title: "What the future holds",
-            here: "We are here",
-            future: "Our future"
+            forWhomTitle: "FOR WHOM DRAZZE",
+            forWhom1: "For investors seeking long-term stability",
+            forWhom2: "For entrepreneurs ready to build and scale a business",
+            forWhom3: "For leaders who want to participate in the development of a new economy",
+            forWhom4: "For those who want to be part of this innovative ecosystem"
         },
         security: {
-            title: "Security architecture",
-            subtitle: "you can trust",
-            card1Title: "100% self-custodial",
-            card1Text: "Your private keys never leave your wallet. Every transaction is signed by you, every asset remains under your control. Drazze can't access your funds, freeze your account, or restrict your operations — because Drazze never has custody in the first place.",
-            card2Title: "Open-source & auditable",
-            card2Text: "All smart contracts are publicly available on the TON blockchain. Third-party audits have been completed, and the code is continuously reviewed by the community. No hidden functions, no backdoors, no surprises.",
-            card3Title: "Built-in protection mechanisms",
-            card3Item1: "Smart slippage protection prevents unfavorable swaps",
-            card3Item2: "Impermanent loss protection feature",
-            card3Item3: "Gas estimation shows costs before confirmation"
+            title: "IGAMING POOLS SYSTEM",
+            card1Title: "POOL LOGIC",
+            card1Text: "It's about a percentage of the entire net profit of the iGaming platform, not from a separate product or direction. The fewer participants in the pool, the higher each one's share. The pool percentage does not change. Only the participant's share changes.",
+            card1ListTitle: "THE HIGHER THE POOL:",
+            card1Item1: "The higher the share",
+            card1Item2: "The fewer participants",
+            card1Item3: "The deeper the level of participation in the DRAZZE economy",
+            card2Title: "PARTICIPANTS OF HOLDER-POOLS:",
+            card2Item1: "Receive a share in the business profit",
+            card2Item2: "Become co-owners of the iGaming-direction DRAZZE",
+            card2Item3: "Participate not in remuneration, but in the distribution of ecosystem income",
+            card3Title: "PROFIT WITHIN THE POOL IS DISTRIBUTED EQUALLY",
+            card3Pool1: "Pool 1 (up to 100 spots) → 0.02% personal share",
+            card3Pool2: "Pool 2 (up to 50 spots) → 0.04% personal share",
+            card3Pool3: "Pool 3 (up to 30 spots) → 0.066% personal share",
+            card3Pool4: "Pool 4 (up to 20 spots) → 0.10% personal share",
+            card3Pool5: "Pool 5 (up to 10 spots) → 0.20% personal share",
+            card4Highlight: "10% of iGaming net profit → goes into pools",
+            card4ListTitle: "IN EACH POOL:",
+            card4Item1: "Limited number of spots (total 210)",
+            card4Item2: "Fixed share (from 0.02% to 0.2%)",
+            card4Item3: "Participants receive a percentage of the iGaming platform's net profit"
         },
         faq: {
-            title1: "Got Questions?",
-            title2: "We've Got Answers"
+            title: "Frequently Asked Questions",
+            question1: "Is DRAZZE's activity legal?",
+            answer1: "Yes. Drazze Limited has an iGaming license from the Anjouan (Union of Comoros) regulator. You can verify this information yourself in the official register.",
+            question2: "What is a 'deflationary model' for a token?",
+            answer2: "Every 6 months, mining decreases by 1%. Part of the profit goes to buying back and burning tokens, creating scarcity and increasing their value.",
+            question3: "What protects the project from dumps and manipulation?",
+            answer3: "DRZ economics is built on limited emission, deflationary model, reduced mining, buyback and burning, and real token usage. This reduces speculative pressure and shifts focus to long-term value.",
+            question4: "Why was iGaming chosen?",
+            answer4: "It is one of the most profitable and stable industries in the world with constant growth in turnover.",
+            question5: "What are revenue pools?",
+            answer5: "A mechanism for distributing part of iGaming profits among participants."
         }
     },
     ru: {
         nav: {
-            products: "Продукты",
-            about: "О проекте",
-            learn: "Обучение",
-            tools: "Инструменты"
+            foundation: "Фундамент",
+            tokenomics: "Токеномика",
+            igaming: "iGaming",
+            pools: "Пулы",
+            faq: "FAQ"
         },
         hero: {
-            title: "СИСТЕМА DRAZZE",
-            subtitle: "ЭКОСИСТЕМА WEB3 СЛЕДУЮЩЕГО ПОКОЛЕНИЯ НА TON",
-            description: "Обменивайтесь, предоставляйте ликвидность и фармите токены на базе TON с молниеносной скоростью, минимальными комиссиями и бесшовной интеграцией с Telegram — при этом сохраняя полный контроль над своими активами.",
+            title: "DRAZZE",
+            subtitle: "ЭКОСИСТЕМА WEB3 НОВОГО ПОКОЛЕНИЯ НА TON",
             join: "Присоединиться",
             buy: "Купить"
         },
@@ -261,6 +292,7 @@ const translations = {
             allTimeSwaps: "Всего обменов"
         },
         features: {
+            sectionTitle: "Фундамент экосистемы DRAZZE",
             title1: "Технологическая база",
             desc1: "Инфраструктура на блокчейне TON, обеспечивающая скорость, безопасность и масштабируемость. Основа для работы продуктов и массового использования.",
             title2: "Прозрачная экономика",
@@ -278,10 +310,10 @@ const translations = {
             teamDev: "Команда и развитие компании",
             marketing: "Маркетинг, трафик, реклама",
             bonusPool: "Бонусный пул активных участников",
-            saleCompleted: "Первичная продажа токенов завершена"
+            saleCompleted: "Первичная продажа токенов завершена 13.11.2025"
         },
         facts: {
-            title: "Интересные факты",
+            title: "Дефляционная модель токена",
             fact1: "Начиная с 7 января 2026 года первое понижение на 3%",
             fact2: "Добыча токена будет снижаться каждые 6 месяцев на 1%",
             fact3: "Часть прибыли экосистемы идёт на выкуп и сжигание токенов",
@@ -297,7 +329,8 @@ const translations = {
         },
         igaming: {
             title: "DRAZZE",
-            subtitle: "Лицензированный iGaming-проект на этапе запуска",
+            subtitle: "Лицензионная iGaming платформа на этапе запуска",
+            certificate: "Сертификат",
             licenseTitle: "Официальная лицензия",
             licenseText: "Компания Drazze Limited получила официальную лицензию на ведение iGaming-деятельности (casino, betting, gaming), действующую в 2025-2026 годах и внесённую в государственный реестр регулятора Анжуана. Лицензию можно проверить напрямую в официальном реестре.",
             devTitle: "Стадия разработки",
@@ -315,10 +348,15 @@ const translations = {
             feature4Title: "Стабильный кэшфлоу, поддерживающий рост",
             feature4Text: "Создает надежную основу для долгосрочного развития платформы",
             conclusion: "iGaming становится ключевым финансовым движком экосистемы DRAZZE, обеспечивая стабильные потоки дохода для участников",
-            launchTitle: "Запуск платформы DRAZZE",
-            launch1: "Онлайн казино",
-            launch2: "Ставки на спорт",
-            launch3: "Карточные игры",
+            gamesTitle: "Категории игр",
+            category1: "Казино",
+            category2: "Слоты",
+            category3: "Live-игры",
+            category4: "Лотереи",
+            category5: "Poker",
+            category6: "Sportsbook",
+            category7: "Турниры",
+            category8: "VIP-система",
             launchDate: "Февраль-Март 2026"
         },
         partners: {
@@ -327,33 +365,48 @@ const translations = {
         threeWays: {
             title: "Три способа выиграть с Drazze",
             description: "Независимо от того, обмениваете ли вы токены, строите или предоставляете ликвидность, Drazze предлагает инструменты и возможности, разработанные специально для ваших целей.",
-            liquidityLabel: "Для поставщиков ликвидности",
-            liquidityTitle: "Заставьте вашу ликвидность работать",
-            liquidityDesc: "Предоставляйте ликвидность пулам и получайте комиссии с обменов.",
-            liquidityBtn: "Предоставить ликвидность >",
-            addLiquidity: "Добавить ликвидность",
-            today: "Сегодня"
-        },
-        roadmap: {
-            title: "Что ждет в будущем",
-            here: "Мы здесь",
-            future: "Наше будущее"
+            forWhomTitle: "ДЛЯ КОГО DRAZZE",
+            forWhom1: "Для инвесторов, ищущих долгосрочную стабильность",
+            forWhom2: "Для предпринимателей, готовых строить и масштабировать бизнес",
+            forWhom3: "Для лидеров, которые хотят участвовать в развитии новой экономики",
+            forWhom4: "Для тех, кто хочет быть частью этой инновационной экосистемы"
         },
         security: {
-            title: "Архитектура безопасности",
-            subtitle: "которой можно доверять",
-            card1Title: "100% самокастодиальный",
-            card1Text: "Ваши приватные ключи никогда не покидают ваш кошелек. Каждая транзакция подписывается вами, каждый актив остается под вашим контролем. Drazze не может получить доступ к вашим средствам, заморозить ваш аккаунт или ограничить ваши операции — потому что Drazze никогда не имеет кастодию.",
-            card2Title: "Открытый исходный код и аудируемый",
-            card2Text: "Все смарт-контракты публично доступны в блокчейне TON. Проведены сторонние аудиты, и код постоянно проверяется сообществом. Никаких скрытых функций, бэкдоров или сюрпризов.",
-            card3Title: "Встроенные механизмы защиты",
-            card3Item1: "Защита от проскальзывания предотвращает неблагоприятные обмены",
-            card3Item2: "Функция защиты от непостоянных потерь",
-            card3Item3: "Оценка газа показывает стоимость до подтверждения"
+            title: "СИСТЕМА IGAMING ПУЛОВ",
+            card1Title: "ЛОГИКА ПУЛОВ",
+            card1Text: "Речь идёт о проценте от всей чистой прибыли iGaming-платформы, а не от отдельного продукта или направления. Чем меньше участников в пуле, тем выше доля каждого. Процент пула не меняется. Меняется только доля участника.",
+            card1ListTitle: "ЧЕМ ВЫШЕ ПУЛ:",
+            card1Item1: "Тем выше доля",
+            card1Item2: "Тем меньше участников",
+            card1Item3: "Тем глубже уровень участия в экономике DRAZZE",
+            card2Title: "УЧАСТНИКИ ХОЛДЕР-ПУЛОВ:",
+            card2Item1: "Получают долю в прибыли бизнеса",
+            card2Item2: "Становятся совладельцами iGaming-направления DRAZZE",
+            card2Item3: "Участвуют не в вознаграждении, а в распределении дохода экосистемы",
+            card3Title: "ПРИБЫЛЬ ВНУТРИ ПУЛА РАСПРЕДЕЛЯЕТСЯ ПОРОВНУ",
+            card3Pool1: "Пул 1 (до 100 мест) → 0.02% личная доля каждого участника",
+            card3Pool2: "Пул 2 (до 50 мест) → 0.04% личная доля каждого участника",
+            card3Pool3: "Пул 3 (до 30 мест) → 0.066% личная доля каждого участника",
+            card3Pool4: "Пул 4 (до 20 мест) → 0.10% личная доля каждого участника",
+            card3Pool5: "Пул 5 (до 10 мест) → 0.20% личная доля каждого участника",
+            card4Highlight: "10% чистой прибыли iGaming → направляется в пулы",
+            card4ListTitle: "В КАЖДОМ ПУЛЕ:",
+            card4Item1: "Ограниченное число мест (всего 210)",
+            card4Item2: "Фиксированная доля (от 0.02% до 0.2%)",
+            card4Item3: "Участники получают процент от чистой прибыли iGaming платформы"
         },
         faq: {
-            title1: "Есть вопросы?",
-            title2: "У нас есть ответы"
+            title: "Часто задаваемые вопросы",
+            question1: "Законна ли деятельность DRAZZE?",
+            answer1: "Да. Компания Drazze Limited имеет iGaming-лицензию регулятора Анжуан (Union of Comoros). Информацию можно самостоятельно проверить в официальном реестре.",
+            question2: "Что такое «дефляционная модель» для токена?",
+            answer2: "Каждые 6 месяцев добыча уменьшается на 1%. Часть прибыли идет на выкуп и сжигание токенов, создавая дефицит и повышая их ценность.",
+            question3: "Что защищает проект от дампов и манипуляций?",
+            answer3: "Экономика DRZ построена на ограниченной эмиссии, дефляционной модели, снижении добычи, выкупе и сжигании и реальном использовании токена. Это снижает спекулятивное давление и смещает фокус на долгосрочную ценность.",
+            question4: "Почему выбран именно iGaming?",
+            answer4: "Это одна из самых прибыльных и устойчивых индустрий в мире с постоянным ростом оборотом.",
+            question5: "Что такое пулы дохода?",
+            answer5: "Механизм распределения части прибыли iGaming между участниками."
         }
     }
 };
@@ -408,23 +461,22 @@ function switchLanguage(lang) {
     
     // Update navigation
     const navLinks = document.querySelectorAll('.nav-link');
-    if (navLinks.length >= 4) {
-        navLinks[0].textContent = langData.nav.products;
-        navLinks[1].textContent = langData.nav.about;
-        navLinks[2].textContent = langData.nav.learn;
-        navLinks[3].textContent = langData.nav.tools;
+    if (navLinks.length >= 5) {
+        navLinks[0].textContent = langData.nav.foundation;
+        navLinks[1].textContent = langData.nav.tokenomics;
+        navLinks[2].textContent = langData.nav.igaming;
+        navLinks[3].textContent = langData.nav.pools;
+        navLinks[4].textContent = langData.nav.faq;
     }
     
     // Update hero section
     const heroTitle = document.querySelector('.hero-title .title-line:first-child');
     const heroSubtitle = document.querySelector('.hero-title .subtitle');
-    const heroDesc = document.querySelector('.hero-description');
     const joinBtn = document.querySelector('.btn-join');
     const buyBtn = document.querySelector('.btn-buy');
     
     if (heroTitle) heroTitle.textContent = langData.hero.title;
     if (heroSubtitle) heroSubtitle.textContent = langData.hero.subtitle;
-    if (heroDesc) heroDesc.textContent = langData.hero.description;
     if (joinBtn) joinBtn.textContent = langData.hero.join;
     if (buyBtn) buyBtn.textContent = langData.hero.buy;
     
@@ -435,6 +487,12 @@ function switchLanguage(lang) {
         statLabels[1].textContent = langData.stats.allWallets;
         statLabels[2].textContent = langData.stats.allHolders;
         statLabels[3].textContent = langData.stats.allTimeSwaps;
+    }
+    
+    // Update features section title
+    const featuresSectionTitle = document.querySelector('.features-section-title');
+    if (featuresSectionTitle) {
+        featuresSectionTitle.textContent = langData.features.sectionTitle;
     }
     
     // Update feature cards
@@ -498,6 +556,7 @@ function switchLanguage(lang) {
     // Update iGaming section
     const igamingTitleMain = document.querySelector('.igaming-title-main');
     const igamingTitleSub = document.querySelector('.igaming-title-sub');
+    const certificateBtn = document.querySelector('.certificate-btn-text');
     const igamingInfoTitles = document.querySelectorAll('.igaming-info-title');
     const igamingInfoTexts = document.querySelectorAll('.igaming-info-text');
     const heartTitleAccent = document.querySelector('.heart-title-accent');
@@ -505,12 +564,12 @@ function switchLanguage(lang) {
     const igamingFeatureTitles = document.querySelectorAll('.igaming-feature-title');
     const igamingFeatureTexts = document.querySelectorAll('.igaming-feature-text');
     const igamingConclusion = document.querySelector('.igaming-conclusion p');
-    const igamingLaunchTitle = document.querySelector('.igaming-launch-title');
-    const igamingLaunchFeatures = document.querySelectorAll('.igaming-launch-features span');
-    const igamingLaunchDate = document.querySelector('.igaming-launch-date');
+    const igamingGamesTitle = document.querySelector('.igaming-games-title');
+    const gameCategoryBtns = document.querySelectorAll('.game-category-btn');
     
     if (igamingTitleMain) igamingTitleMain.textContent = langData.igaming.title;
     if (igamingTitleSub) igamingTitleSub.textContent = langData.igaming.subtitle;
+    if (certificateBtn) certificateBtn.textContent = langData.igaming.certificate;
     if (igamingInfoTitles.length >= 3 && igamingInfoTexts.length >= 3) {
         igamingInfoTitles[0].textContent = langData.igaming.licenseTitle;
         igamingInfoTexts[0].textContent = langData.igaming.licenseText;
@@ -532,12 +591,18 @@ function switchLanguage(lang) {
         igamingFeatureTexts[3].textContent = langData.igaming.feature4Text;
     }
     if (igamingConclusion) igamingConclusion.textContent = langData.igaming.conclusion;
-    if (igamingLaunchTitle) igamingLaunchTitle.textContent = langData.igaming.launchTitle;
-    if (igamingLaunchFeatures.length >= 3) {
-        igamingLaunchFeatures[0].textContent = langData.igaming.launch1;
-        igamingLaunchFeatures[1].textContent = langData.igaming.launch2;
-        igamingLaunchFeatures[2].textContent = langData.igaming.launch3;
+    if (igamingGamesTitle) igamingGamesTitle.textContent = langData.igaming.gamesTitle;
+    if (gameCategoryBtns.length >= 8) {
+        gameCategoryBtns[0].textContent = langData.igaming.category1;
+        gameCategoryBtns[1].textContent = langData.igaming.category2;
+        gameCategoryBtns[2].textContent = langData.igaming.category3;
+        gameCategoryBtns[3].textContent = langData.igaming.category4;
+        gameCategoryBtns[4].textContent = langData.igaming.category5;
+        gameCategoryBtns[5].textContent = langData.igaming.category6;
+        gameCategoryBtns[6].textContent = langData.igaming.category7;
+        gameCategoryBtns[7].textContent = langData.igaming.category8;
     }
+    const igamingLaunchDate = document.querySelector('.igaming-launch-date');
     if (igamingLaunchDate) igamingLaunchDate.textContent = langData.igaming.launchDate;
     
     // Update partners section
@@ -547,62 +612,110 @@ function switchLanguage(lang) {
     // Update three ways section
     const threeWaysTitle = document.querySelector('.three-ways-title');
     const threeWaysDesc = document.querySelector('.three-ways-description');
-    const wayLabel = document.querySelector('.way-label');
-    const wayCardTitle = document.querySelector('.way-card-title');
-    const wayCardDesc = document.querySelector('.way-card-description');
-    const wayButton = document.querySelector('.way-button');
-    const addLiquidityBtn = document.querySelector('.add-liquidity-btn');
-    const changeAmount = document.querySelector('.change-amount');
-    
     if (threeWaysTitle) threeWaysTitle.textContent = langData.threeWays.title;
     if (threeWaysDesc) threeWaysDesc.textContent = langData.threeWays.description;
-    if (wayLabel) wayLabel.textContent = langData.threeWays.liquidityLabel;
-    if (wayCardTitle) wayCardTitle.textContent = langData.threeWays.liquidityTitle;
-    if (wayCardDesc) wayCardDesc.textContent = langData.threeWays.liquidityDesc;
-    if (wayButton) wayButton.textContent = langData.threeWays.liquidityBtn;
-    if (addLiquidityBtn) addLiquidityBtn.textContent = langData.threeWays.addLiquidity;
-    if (changeAmount && changeAmount.textContent.includes('Today')) {
-        changeAmount.textContent = changeAmount.textContent.replace('Today', langData.threeWays.today);
+    
+    // Update for-whom section
+    const forWhomTitle = document.querySelector('.for-whom-title');
+    const forWhomItems = document.querySelectorAll('.for-whom-item');
+    if (forWhomTitle) forWhomTitle.textContent = langData.threeWays.forWhomTitle;
+    if (forWhomItems.length >= 4) {
+        forWhomItems[0].textContent = langData.threeWays.forWhom1;
+        forWhomItems[1].textContent = langData.threeWays.forWhom2;
+        forWhomItems[2].textContent = langData.threeWays.forWhom3;
+        forWhomItems[3].textContent = langData.threeWays.forWhom4;
     }
-    
-    // Update roadmap section
-    const roadmapTitle = document.querySelector('.roadmap-title');
-    const timelineLeft = document.querySelector('.timeline-label-left');
-    const timelineRight = document.querySelector('.timeline-label-right');
-    
-    if (roadmapTitle) roadmapTitle.textContent = langData.roadmap.title;
-    if (timelineLeft) timelineLeft.textContent = langData.roadmap.here;
-    if (timelineRight) timelineRight.textContent = langData.roadmap.future;
     
     // Update security section
     const securityTitle = document.querySelectorAll('.security-title .title-line');
-    const securityCardTitles = document.querySelectorAll('.security-card-title');
-    const securityCardTexts = document.querySelectorAll('.security-card-text');
-    const securityListItems = document.querySelectorAll('.security-list li');
-    
-    if (securityTitle.length >= 2) {
+    if (securityTitle.length >= 1) {
         securityTitle[0].textContent = langData.security.title;
-        securityTitle[1].textContent = langData.security.subtitle;
     }
-    if (securityCardTitles.length >= 3 && securityCardTexts.length >= 2) {
-        securityCardTitles[0].textContent = langData.security.card1Title;
-        securityCardTexts[0].textContent = langData.security.card1Text;
-        securityCardTitles[1].textContent = langData.security.card2Title;
-        securityCardTexts[1].textContent = langData.security.card2Text;
-        securityCardTitles[2].textContent = langData.security.card3Title;
+    
+    // Card 1
+    const card1Title = document.querySelectorAll('.security-card-title')[0];
+    const card1Text = document.querySelectorAll('.security-card-text')[0];
+    const card1ListTitle = document.querySelector('.security-list-title');
+    const card1ListItems = document.querySelectorAll('.security-list-section .security-list li');
+    
+    if (card1Title) card1Title.textContent = langData.security.card1Title;
+    if (card1Text) card1Text.textContent = langData.security.card1Text;
+    if (card1ListTitle) card1ListTitle.textContent = langData.security.card1ListTitle;
+    if (card1ListItems.length >= 3) {
+        card1ListItems[0].textContent = langData.security.card1Item1;
+        card1ListItems[1].textContent = langData.security.card1Item2;
+        card1ListItems[2].textContent = langData.security.card1Item3;
     }
-    if (securityListItems.length >= 3) {
-        securityListItems[0].textContent = langData.security.card3Item1;
-        securityListItems[1].textContent = langData.security.card3Item2;
-        securityListItems[2].textContent = langData.security.card3Item3;
+    
+    // Card 2
+    const card2Title = document.querySelectorAll('.security-card-title')[1];
+    const card2ListItems = document.querySelectorAll('.security-card:nth-child(2) .security-list li');
+    
+    if (card2Title) card2Title.textContent = langData.security.card2Title;
+    if (card2ListItems.length >= 3) {
+        card2ListItems[0].textContent = langData.security.card2Item1;
+        card2ListItems[1].textContent = langData.security.card2Item2;
+        card2ListItems[2].textContent = langData.security.card2Item3;
+    }
+    
+    // Card 3
+    const card3Title = document.querySelectorAll('.security-card-title')[2];
+    const card3PoolItems = document.querySelectorAll('.pool-item');
+    
+    if (card3Title) card3Title.textContent = langData.security.card3Title;
+    if (card3PoolItems.length >= 5) {
+        card3PoolItems[0].textContent = langData.security.card3Pool1;
+        card3PoolItems[1].textContent = langData.security.card3Pool2;
+        card3PoolItems[2].textContent = langData.security.card3Pool3;
+        card3PoolItems[3].textContent = langData.security.card3Pool4;
+        card3PoolItems[4].textContent = langData.security.card3Pool5;
+    }
+    
+    // Card 4
+    const card4Highlight = document.querySelector('.security-highlight-box');
+    const card4ListTitle = document.querySelectorAll('.security-list-title')[1];
+    const card4ListItems = document.querySelectorAll('.security-card:nth-child(4) .security-list li');
+    
+    if (card4Highlight) card4Highlight.textContent = langData.security.card4Highlight;
+    if (card4ListTitle) card4ListTitle.textContent = langData.security.card4ListTitle;
+    if (card4ListItems.length >= 3) {
+        card4ListItems[0].textContent = langData.security.card4Item1;
+        card4ListItems[1].textContent = langData.security.card4Item2;
+        card4ListItems[2].textContent = langData.security.card4Item3;
     }
     
     // Update FAQ section
-    const faqTitleLines = document.querySelectorAll('.faq-title-line');
-    if (faqTitleLines.length >= 2) {
-        faqTitleLines[0].textContent = langData.faq.title1;
-        faqTitleLines[1].textContent = langData.faq.title2;
+    const faqTitle = document.querySelector('.faq-main-title .faq-title-line');
+    if (faqTitle) faqTitle.textContent = langData.faq.title;
+    
+    const faqQuestions = document.querySelectorAll('.faq-question span:first-child');
+    const faqAnswers = document.querySelectorAll('.faq-answer p');
+    
+    if (faqQuestions.length >= 5) {
+        faqQuestions[0].textContent = langData.faq.question1;
+        faqQuestions[1].textContent = langData.faq.question2;
+        faqQuestions[2].textContent = langData.faq.question3;
+        faqQuestions[3].textContent = langData.faq.question4;
+        faqQuestions[4].textContent = langData.faq.question5;
     }
+    
+    if (faqAnswers.length >= 5) {
+        faqAnswers[0].textContent = langData.faq.answer1;
+        faqAnswers[1].textContent = langData.faq.answer2;
+        faqAnswers[2].textContent = langData.faq.answer3;
+        faqAnswers[3].textContent = langData.faq.answer4;
+        faqAnswers[4].textContent = langData.faq.answer5;
+    }
+    
+    // Update footer navigation links
+    const footerNavLinks = document.querySelectorAll('.footer-nav-link[data-eng]');
+    footerNavLinks.forEach(link => {
+        if (lang === 'en') {
+            link.textContent = link.getAttribute('data-eng');
+        } else {
+            link.textContent = link.getAttribute('data-rus');
+        }
+    });
     
     // Update language selector text
     const languageCurrent = document.querySelector('.language-current');
@@ -691,7 +804,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // Scroll animation for way cards
-const wayCards = document.querySelectorAll('.way-card-left, .way-card-right');
+const wayCards = document.querySelectorAll('.way-card-right, .for-whom-section');
 const wayCardsObserverOptions = {
     threshold: 0.2,
     rootMargin: '0px 0px -100px 0px'
@@ -886,13 +999,13 @@ function initSecuritySlider() {
         return;
     }
     
-    // Only use first 3 cards (original ones)
-    const originalCards = Array.from(securityCards).slice(0, 3);
+    // Use all cards
+    const originalCards = Array.from(securityCards);
     let currentCardIndex = 0;
     let isTransitioning = false;
     let intervalId = null;
-    const SHOW_MS = 2200; // time card stays fully visible
-    const TRANSITION_MS = 900; // CSS slide duration
+    const SHOW_MS = 3000; // time card stays fully visible
+    const TRANSITION_MS = 600; // CSS slide duration
     
     // Hide all cards initially
     originalCards.forEach((card) => {
@@ -903,6 +1016,10 @@ function initSecuritySlider() {
         originalCards.forEach((c, i) => {
             c.classList.toggle('active', i === idx);
             c.classList.remove('leaving', 'entering');
+            if (i !== idx) {
+                c.style.opacity = '0';
+                c.style.visibility = 'hidden';
+            }
         });
     };
 
@@ -917,7 +1034,7 @@ function initSecuritySlider() {
         // Prepare next below the viewport
         next.classList.remove('leaving', 'active');
         next.classList.add('entering');
-        next.style.setProperty('--enter-from', '70px');
+        next.style.setProperty('--enter-from', '50px');
 
         // Ensure current is active and not "entering"
         if (current) {
@@ -940,8 +1057,12 @@ function initSecuritySlider() {
                 setTimeout(() => {
                     if (current) {
                         current.classList.remove('active', 'leaving', 'entering');
+                        current.style.opacity = '';
+                        current.style.visibility = '';
                     }
                     next.classList.remove('leaving', 'entering');
+                    next.style.opacity = '';
+                    next.style.visibility = '';
                     currentCardIndex = nextIndex;
                     isTransitioning = false;
                 }, TRANSITION_MS);
