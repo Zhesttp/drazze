@@ -1,5 +1,48 @@
+// Loading Screen Animation
+function initLoadingScreen() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const loadingNumber = document.getElementById('loadingNumber');
+    
+    if (!loadingScreen || !loadingNumber) return;
+    
+    // Add loading class to body to prevent scrolling
+    document.body.classList.add('loading');
+    
+    let progress = 0;
+    const duration = 1500; // 1.5 seconds for faster feel
+    const steps = 100;
+    const stepTime = duration / steps;
+    
+    const updateProgress = () => {
+        if (progress <= 100) {
+            loadingNumber.textContent = progress;
+            progress++;
+            setTimeout(updateProgress, stepTime);
+        } else {
+            // Hide loading screen after animation completes
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    document.body.classList.remove('loading');
+                }, 500);
+            }, 300);
+        }
+    };
+    
+    // Start animation
+    setTimeout(updateProgress, 100);
+}
+
+// Initialize loading screen when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLoadingScreen);
+} else {
+    initLoadingScreen();
+}
+
 // Mobile Menu Toggle
-const menuToggle = document.getElementById('menuToggle');
+const menuToggle = document.getElementById('mobileMenuToggle');
 const navMenu = document.getElementById('navMenu');
 
 if (menuToggle && navMenu) {
@@ -14,6 +57,14 @@ if (menuToggle && navMenu) {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
         }
+    });
+
+    // Close menu when a link is clicked
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
     });
 }
 
@@ -135,10 +186,11 @@ if (newsletterForm) {
 const translations = {
     en: {
         nav: {
-            foundation: "Foundation",
+            development: "Development",
             tokenomics: "Tokenomics",
-            igaming: "iGaming",
+            earn: "Ways to Earn",
             pools: "Pools",
+            igaming: "iGaming",
             faq: "FAQ"
         },
         hero: {
@@ -154,15 +206,15 @@ const translations = {
             allTimeSwaps: "All-time swaps"
         },
         features: {
-            sectionTitle: "Foundation of DRAZZE Ecosystem",
-            title1: "Technological Base",
-            desc1: "Infrastructure on the TON blockchain, ensuring speed, security, and scalability. The foundation for product operation and mass adoption.",
-            title2: "Transparent Economy",
-            desc2: "All processes in DRAZZE operate via smart contracts. Accruals, token distribution, and participation in the ecosystem occur according to pre-set rules, without manual control.",
-            title3: "Web3 Products",
-            desc3: "DRAZZE creates and develops market-demanded Web3 products with clear demand, user interest, and scaling potential.",
-            title4: "Active Community",
-            desc4: "A strong and engaged community shaping the future of the platform. People are involved in products, use tokens, participate in mechanics, and receive direct benefits from the ecosystem's growth."
+            sectionTitle: "Drazze - it's about development",
+            title1: "KPI Bonuses",
+            desc1: "New KPI bonus system for leaders with a monthly pool of 1,050,000 DRZ. Remuneration is paid for fulfilling structural volume conditions according to your rank, with no more than 40% from the strongest branch being taken into account. Leaders can receive bonuses for all KPI levels corresponding to their status and below.",
+            title2: "Built-in P2P Exchanger",
+            desc2: "Operates on a smart contract, ensuring fully automated and secure 24/7 transactions. Staking accruals occur every second, and tokens can be purchased directly from other participants via a bot at market price.",
+            title3: "VPN",
+            desc3: "DRAZZE provides its own secure VPN as a gift after activating a contract for 42 tokens. The number of available servers for connection depends on your rank in the project. VPN allows bypassing blocks and provides stable access to internet resources.",
+            title4: "Blockchain Verification",
+            desc4: "The DRAZZE token has passed official TON blockchain verification, confirming a full smart contract audit and high technical reliability of the project. This is an important step, increasing trust and opening the way for listing on decentralized exchanges."
         },
         tokenomics: {
             title: "Tokenomics DRAZZE",
@@ -233,6 +285,17 @@ const translations = {
             forWhom3: "For leaders who want to participate in the development of a new economy",
             forWhom4: "For those who want to be part of this innovative ecosystem"
         },
+        earn: {
+            title: "Ways to Earn with Drazze",
+            slide1Title: "Staking",
+            slide1Desc: "Tokens remain in your wallet, and you receive passive income from 15% to 22% per month, approximately 0.6% per day. For example, $1,000 gives from $150 to $220 profit per month.",
+            slide2Title: "Affiliate Program",
+            slide2Desc: "DRAZZE allows you to earn 5% from the first line and additional rewards up to 12 levels deep. For example, with regular growth of your network — if each participant attracts just one person per week — in just three months the structure can exceed 10,000 people, creating potential for high passive income. With the growth of leadership statuses, new levels of affiliate income open up, staking profits increase, and the Commander status gives access to weekly payments from the KPI bonus pool.",
+            slide3Title: "KPI Pool",
+            slide3Desc: "Weekly KPI pool of 45,000 DRZ is distributed among leaders who have closed their levels. Commander status brings an average of about 450 DRZ ($650) per week. Further ranks — Captain, General, Diamond, Legend and Marshal — sequentially increase your income and depth of opportunities, while maintaining the right to all bonuses of previous statuses.",
+            slide4Title: "Summary",
+            slide4Desc: "In DRAZZE, your income is formed from three powerful sources: staking profits, affiliate program, and weekly leadership bonuses. This unique combination creates the opportunity for stable earnings, which can range from one to hundreds of thousands of dollars weekly. Start building your future with DRAZZE today."
+        },
         security: {
             title: "IGAMING POOLS SYSTEM",
             card1Title: "POOL LOGIC",
@@ -273,10 +336,11 @@ const translations = {
     },
     ru: {
         nav: {
-            foundation: "Фундамент",
+            development: "Развитие",
             tokenomics: "Токеномика",
-            igaming: "iGaming",
+            earn: "Заработок",
             pools: "Пулы",
+            igaming: "iGaming",
             faq: "FAQ"
         },
         hero: {
@@ -292,15 +356,15 @@ const translations = {
             allTimeSwaps: "Всего обменов"
         },
         features: {
-            sectionTitle: "Фундамент экосистемы DRAZZE",
-            title1: "Технологическая база",
-            desc1: "Инфраструктура на блокчейне TON, обеспечивающая скорость, безопасность и масштабируемость. Основа для работы продуктов и массового использования.",
-            title2: "Прозрачная экономика",
-            desc2: "Все процессы в DRAZZE работают через смарт-контракты. Начисления, распределение токенов и участие в экосистеме происходят по заранее заданным правилам, без ручного управления.",
-            title3: "Web3 Продукты",
-            desc3: "DRAZZE создает и развивает востребованные рынком Web3 продукты с понятным спросом, интересом пользователей и потенциалом масштабирования.",
-            title4: "Активное сообщество",
-            desc4: "Сильное и вовлеченное сообщество, формирующее будущее платформы. Люди вовлечены в продукты, используют токен, участвуют в механиках и получают прямую выгоду от роста экосистемы."
+            sectionTitle: "Drazze - это про развитие",
+            title1: "Бонусы KPI",
+            desc1: "Новая KPI-система бонусов для лидеров с ежемесячным пулом в 1 050 000 DRZ. Вознаграждение выплачивается за выполнение условий по объёмам структуры в соответствии с вашим рангом, при этом учитывается не более 40% от самой сильной ветки. Лидеры могут получать бонусы за все KPI-уровни, соответствующие их статусу и ниже.",
+            title2: "Встроенный P2P-обменник",
+            desc2: "Работает на смарт-контракте, обеспечивая полностью автоматизированные и безопасные сделки 24/7. Стейкинг-начисления происходят ежесекундно, а токены можно приобретать напрямую у других участников через бота по рыночной цене.",
+            title3: "VPN",
+            desc3: "DRAZZE предоставляет собственный безопасный VPN в подарок после активации контракта на 42 токена. Количество доступных серверов для подключения зависит от вашего ранга в проекте. VPN позволяет обходить блокировки и обеспечивает стабильный доступ к интернет-ресурсам.",
+            title4: "Верификация блокчейна",
+            desc4: "Токен DRAZZE прошёл официальную верификацию блокчейна TON, подтверждающую полную проверку смарт-контракта и высокую техническую надёжность проекта. Это важный шаг, повышающий доверие и открывающий путь к листингу на децентрализованных биржах."
         },
         tokenomics: {
             title: "Токеномика DRAZZE",
@@ -370,6 +434,17 @@ const translations = {
             forWhom2: "Для предпринимателей, готовых строить и масштабировать бизнес",
             forWhom3: "Для лидеров, которые хотят участвовать в развитии новой экономики",
             forWhom4: "Для тех, кто хочет быть частью этой инновационной экосистемы"
+        },
+        earn: {
+            title: "Способы заработка с помощью Drazze",
+            slide1Title: "Стейкинг",
+            slide1Desc: "Токены остаются в вашем кошельке, а вы получаете пассивный доход от 15 до 22% в месяц, примерно 0,6% в день. Например, 1000 долларов дает от 150 до 220 долларов прибыли в месяц.",
+            slide2Title: "Партнёрская программа",
+            slide2Desc: "DRAZZE позволяет получать доход 5% с первой линии и дополнительное вознаграждение до 12 уровней в глубину. Например, при регулярном росте вашей сети — если каждый участник привлекает всего по одному человеку в неделю — уже через три месяца структура может превысить 10 000 человек, создавая потенциал для высокого пассивного дохода. С ростом лидерских статусов открываются новые уровни партнёрского дохода, увеличивается прибыль от стейкинга, а статус Commander даёт доступ к еженедельным выплатам из KPI-бонусного пула.",
+            slide3Title: "KPI-пул",
+            slide3Desc: "Еженедельный KPI-пул в размере 45 000 DRZ распределяется между лидерами, закрывшими свои уровни. Статус Commander приносит в среднем около 450 DRZ ($650) в неделю. Дальнейшие ранги — Captain, General, Diamond, Legend и Marshal — последовательно увеличивают ваш доход и глубину возможностей, сохраняя при этом право на все бонусы предыдущих статусов.",
+            slide4Title: "Итог",
+            slide4Desc: "В DRAZZE ваши доходы формируются из трёх мощных источников: прибыли от стейкинга, партнёрской программы и еженедельных лидерских бонусов. Эта уникальная комбинация создаёт возможность для стабильного заработка, который может составлять от одной до сотен тысяч долларов еженедельно. Начните строить своё будущее с DRAZZE уже сегодня."
         },
         security: {
             title: "СИСТЕМА IGAMING ПУЛОВ",
@@ -461,12 +536,13 @@ function switchLanguage(lang) {
     
     // Update navigation
     const navLinks = document.querySelectorAll('.nav-link');
-    if (navLinks.length >= 5) {
-        navLinks[0].textContent = langData.nav.foundation;
+    if (navLinks.length >= 6) {
+        navLinks[0].textContent = langData.nav.development;
         navLinks[1].textContent = langData.nav.tokenomics;
-        navLinks[2].textContent = langData.nav.igaming;
+        navLinks[2].textContent = langData.nav.earn;
         navLinks[3].textContent = langData.nav.pools;
-        navLinks[4].textContent = langData.nav.faq;
+        navLinks[4].textContent = langData.nav.igaming;
+        navLinks[5].textContent = langData.nav.faq;
     }
     
     // Update hero section
@@ -479,6 +555,16 @@ function switchLanguage(lang) {
     if (heroSubtitle) heroSubtitle.textContent = langData.hero.subtitle;
     if (joinBtn) joinBtn.textContent = langData.hero.join;
     if (buyBtn) buyBtn.textContent = langData.hero.buy;
+    
+    // Update hero tags
+    const heroTags = document.querySelectorAll('.hero-tag[data-eng]');
+    heroTags.forEach(tag => {
+        if (lang === 'en') {
+            tag.textContent = tag.getAttribute('data-eng');
+        } else {
+            tag.textContent = tag.getAttribute('data-rus');
+        }
+    });
     
     // Update stats labels
     const statLabels = document.querySelectorAll('.stat-label');
@@ -624,6 +710,24 @@ function switchLanguage(lang) {
         forWhomItems[1].textContent = langData.threeWays.forWhom2;
         forWhomItems[2].textContent = langData.threeWays.forWhom3;
         forWhomItems[3].textContent = langData.threeWays.forWhom4;
+    }
+    
+    // Update earn section
+    const earnSectionTitle = document.querySelector('.earn-section-title');
+    if (earnSectionTitle) earnSectionTitle.textContent = langData.earn.title;
+    
+    const earnSlideTitles = document.querySelectorAll('.earn-slide-title');
+    const earnSlideDescriptions = document.querySelectorAll('.earn-slide-description');
+    
+    if (earnSlideTitles.length >= 4 && earnSlideDescriptions.length >= 4) {
+        earnSlideTitles[0].textContent = langData.earn.slide1Title;
+        earnSlideDescriptions[0].textContent = langData.earn.slide1Desc;
+        earnSlideTitles[1].textContent = langData.earn.slide2Title;
+        earnSlideDescriptions[1].textContent = langData.earn.slide2Desc;
+        earnSlideTitles[2].textContent = langData.earn.slide3Title;
+        earnSlideDescriptions[2].textContent = langData.earn.slide3Desc;
+        earnSlideTitles[3].textContent = langData.earn.slide4Title;
+        earnSlideDescriptions[3].textContent = langData.earn.slide4Desc;
     }
     
     // Update security section
@@ -1277,6 +1381,108 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initMobileMenu);
 } else {
     initMobileMenu();
+}
+
+// Earn Slider
+function initEarnSlider() {
+    const slider = document.querySelector('.earn-slider');
+    const slides = document.querySelectorAll('.earn-slide');
+    const prevBtn = document.querySelector('.earn-arrow-prev');
+    const nextBtn = document.querySelector('.earn-arrow-next');
+    const indicators = document.querySelectorAll('.earn-indicator');
+    
+    if (!slider || slides.length === 0) return;
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    function showSlide(index) {
+        // Remove active class from all slides and indicators
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // Add active class to current slide and indicator
+        if (slides[index]) {
+            slides[index].classList.add('active');
+        }
+        if (indicators[index]) {
+            indicators[index].classList.add('active');
+        }
+        
+        // Update arrow states
+        if (prevBtn) {
+            prevBtn.classList.toggle('disabled', index === 0);
+        }
+        if (nextBtn) {
+            nextBtn.classList.toggle('disabled', index === totalSlides - 1);
+        }
+    }
+    
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+    }
+    
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+    }
+    
+    function goToSlide(index) {
+        if (index >= 0 && index < totalSlides) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+    }
+    
+    // Event listeners
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            nextSlide();
+        });
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            prevSlide();
+        });
+    }
+    
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (slider.closest('.earn-section') && document.querySelector('.earn-section').getBoundingClientRect().top < window.innerHeight && document.querySelector('.earn-section').getBoundingClientRect().bottom > 0) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        }
+    });
+    
+    // Initialize
+    showSlide(0);
+}
+
+// Initialize earn slider when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEarnSlider);
+} else {
+    initEarnSlider();
 }
 
 // Console message
