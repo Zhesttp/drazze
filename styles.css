@@ -115,10 +115,62 @@ body {
     color: var(--text-white);
     cursor: pointer;
     font-size: 0.95rem;
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.language-selector:hover {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .globe-icon {
     font-size: 1rem;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 100px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.language-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    padding: 0.75rem 1.5rem;
+    color: var(--text-white);
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.language-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.language-option:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.language-option:last-child {
+    border-radius: 0 0 8px 8px;
 }
 
 /* Hero Section */
