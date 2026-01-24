@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drazze - Native TON DeFi made simple</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <h1 class="loading-title">DRAZZE</h1>
+            <div class="loading-progress">
+                <span class="loading-number" id="loadingNumber">0</span>
+                <span class="loading-dollar">$</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -15,10 +29,11 @@
             </div>
             <div class="nav-divider"></div>
             <div class="nav-menu" id="navMenu">
-                <a href="#features" class="nav-link" data-eng="Foundation" data-rus="Фундамент">Foundation</a>
-                <a href="#tokenomics" class="nav-link" data-eng="Tokenomics" data-rus="Токеномика">Tokenomics</a>
+                <a href="#features" class="nav-link" data-eng="Development" data-rus="Развитие">Развитие</a>
+                <a href="#tokenomics" class="nav-link" data-eng="Tokenomics" data-rus="Токеномика">Токеномика</a>
+                <a href="#earn" class="nav-link" data-eng="Ways to Earn" data-rus="Заработок">Заработок</a>
+                <a href="#pools" class="nav-link" data-eng="Pools" data-rus="Пулы">Пулы</a>
                 <a href="#igaming" class="nav-link" data-eng="iGaming" data-rus="iGaming">iGaming</a>
-                <a href="#pools" class="nav-link" data-eng="Pools" data-rus="Пулы">Pools</a>
                 <a href="#faq" class="nav-link" data-eng="FAQ" data-rus="FAQ">FAQ</a>
             </div>
             <div class="nav-divider"></div>
@@ -42,31 +57,109 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="stars-background"></div>
+        <div class="crypto-background">
+            <!-- Grid Pattern -->
+            <div class="network-grid"></div>
+            
+            <!-- Network Nodes and Connections -->
+            <svg class="network-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <!-- Connections (Lines) -->
+                <g class="network-lines">
+                    <line class="network-line" x1="20" y1="15" x2="35" y2="25" />
+                    <line class="network-line" x1="35" y1="25" x2="50" y2="20" />
+                    <line class="network-line" x1="50" y1="20" x2="65" y2="25" />
+                    <line class="network-line" x1="65" y1="25" x2="80" y2="15" />
+                    <line class="network-line" x1="20" y1="15" x2="25" y2="35" />
+                    <line class="network-line" x1="25" y1="35" x2="40" y2="40" />
+                    <line class="network-line" x1="40" y1="40" x2="50" y2="35" />
+                    <line class="network-line" x1="50" y1="35" x2="60" y2="40" />
+                    <line class="network-line" x1="60" y1="40" x2="75" y2="35" />
+                    <line class="network-line" x1="75" y1="35" x2="80" y2="15" />
+                    <line class="network-line" x1="35" y1="25" x2="40" y2="40" />
+                    <line class="network-line" x1="50" y1="20" x2="50" y2="35" />
+                    <line class="network-line" x1="65" y1="25" x2="60" y2="40" />
+                    <line class="network-line" x1="25" y1="35" x2="30" y2="55" />
+                    <line class="network-line" x1="30" y1="55" x2="45" y2="50" />
+                    <line class="network-line" x1="45" y1="50" x2="55" y2="50" />
+                    <line class="network-line" x1="55" y1="50" x2="70" y2="55" />
+                    <line class="network-line" x1="40" y1="40" x2="45" y2="50" />
+                    <line class="network-line" x1="50" y1="35" x2="50" y2="50" />
+                    <line class="network-line" x1="60" y1="40" x2="55" y2="50" />
+                    <line class="network-line" x1="30" y1="55" x2="20" y2="70" />
+                    <line class="network-line" x1="20" y1="70" x2="35" y2="65" />
+                    <line class="network-line" x1="35" y1="65" x2="50" y2="70" />
+                    <line class="network-line" x1="50" y1="70" x2="65" y2="65" />
+                    <line class="network-line" x1="65" y1="65" x2="80" y2="70" />
+                    <line class="network-line" x1="45" y1="50" x2="35" y2="65" />
+                    <line class="network-line" x1="50" y1="50" x2="50" y2="70" />
+                    <line class="network-line" x1="55" y1="50" x2="65" y2="65" />
+                    <line class="network-line" x1="20" y1="70" x2="15" y2="85" />
+                    <line class="network-line" x1="15" y1="85" x2="30" y2="80" />
+                    <line class="network-line" x1="30" y1="80" x2="50" y2="85" />
+                    <line class="network-line" x1="50" y1="85" x2="70" y2="80" />
+                    <line class="network-line" x1="70" y1="80" x2="85" y2="85" />
+                    <line class="network-line" x1="35" y1="65" x2="30" y2="80" />
+                    <line class="network-line" x1="50" y1="70" x2="50" y2="85" />
+                    <line class="network-line" x1="65" y1="65" x2="70" y2="80" />
+                </g>
+                
+                <!-- Nodes (Dots) -->
+                <g class="network-nodes">
+                    <circle class="network-node node-main" cx="50" cy="20" r="1.2" />
+                    <circle class="network-node node-medium" cx="20" cy="15" r="1" />
+                    <circle class="network-node node-medium" cx="35" cy="25" r="1" />
+                    <circle class="network-node node-medium" cx="65" cy="25" r="1" />
+                    <circle class="network-node node-medium" cx="80" cy="15" r="1" />
+                    <circle class="network-node node-small" cx="25" cy="35" r="0.8" />
+                    <circle class="network-node node-small" cx="40" cy="40" r="0.8" />
+                    <circle class="network-node node-small" cx="50" cy="35" r="0.8" />
+                    <circle class="network-node node-small" cx="60" cy="40" r="0.8" />
+                    <circle class="network-node node-small" cx="75" cy="35" r="0.8" />
+                    <circle class="network-node node-small" cx="30" cy="55" r="0.8" />
+                    <circle class="network-node node-small" cx="45" cy="50" r="0.8" />
+                    <circle class="network-node node-small" cx="50" cy="50" r="0.8" />
+                    <circle class="network-node node-small" cx="55" cy="50" r="0.8" />
+                    <circle class="network-node node-small" cx="70" cy="55" r="0.8" />
+                    <circle class="network-node node-small" cx="20" cy="70" r="0.8" />
+                    <circle class="network-node node-small" cx="35" cy="65" r="0.8" />
+                    <circle class="network-node node-small" cx="50" cy="70" r="0.8" />
+                    <circle class="network-node node-small" cx="65" cy="65" r="0.8" />
+                    <circle class="network-node node-small" cx="80" cy="70" r="0.8" />
+                    <circle class="network-node node-tiny" cx="15" cy="85" r="0.6" />
+                    <circle class="network-node node-tiny" cx="30" cy="80" r="0.6" />
+                    <circle class="network-node node-tiny" cx="50" cy="85" r="0.6" />
+                    <circle class="network-node node-tiny" cx="70" cy="80" r="0.6" />
+                    <circle class="network-node node-tiny" cx="85" cy="85" r="0.6" />
+                    <circle class="network-node node-tiny" cx="10" cy="30" r="0.5" />
+                    <circle class="network-node node-tiny" cx="90" cy="30" r="0.5" />
+                    <circle class="network-node node-tiny" cx="10" cy="60" r="0.5" />
+                    <circle class="network-node node-tiny" cx="90" cy="60" r="0.5" />
+                </g>
+            </svg>
+        </div>
         <div class="hero-content">
             <h1 class="hero-title">
                 <span class="title-line">DRAZZE</span>
                 <span class="title-line subtitle">NEXT-GENERATION WEB3 ECOSYSTEM ON TON</span>
             </h1>
+            <div class="hero-tags">
+                <span class="hero-tag" data-eng="CRYPTO" data-rus="CRYPTO">CRYPTO</span>
+                <span class="hero-tag-separator">•</span>
+                <span class="hero-tag" data-eng="DEFI" data-rus="DEFI">DEFI</span>
+                <span class="hero-tag-separator">•</span>
+                <span class="hero-tag" data-eng="IGAMING" data-rus="IGAMING">IGAMING</span>
+                <span class="hero-tag-separator">•</span>
+                <span class="hero-tag" data-eng="COMMUNITY ECONOMY" data-rus="COMMUNITY ECONOMY">COMMUNITY ECONOMY</span>
+            </div>
             <div class="hero-buttons">
                 <a href="https://t.me/drazze_crypto_bot" target="_blank" rel="noopener noreferrer" class="btn-join btn-large">Join</a>
                 <button class="btn-buy btn-large">Buy</button>
             </div>
         </div>
-        <div class="moon-landscape">
-            <div class="moon-glow"></div>
-            <div class="astronaut">
-                <div class="astronaut-body"></div>
-                <div class="astronaut-helmet">
-                    <div class="cat-ears"></div>
-                </div>
-            </div>
-            <div class="astronaut-small"></div>
-        </div>
         <div class="hero-stats">
             <div class="stat-item">
                 <div class="stat-label">All wallets</div>
-                <div class="stat-value" data-value="11135" data-prefix="" data-suffix="">$0</div>
+                <div class="stat-value" data-value="11135" data-prefix="" data-suffix="">0</div>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
@@ -78,83 +171,81 @@
 
     <!-- Features Section -->
     <section id="features" class="features-section">
-        <h2 class="features-section-title" data-eng="Foundation of DRAZZE Ecosystem" data-rus="Фундамент экосистемы DRAZZE">Foundation of DRAZZE Ecosystem</h2>
+        <h2 class="features-section-title" data-eng="Drazze - it's about development" data-rus="Drazze - это про развитие">Drazze - это про развитие</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-number">01</div>
-                <div class="feature-graphic graphic-layers">
-                    <svg class="layers-svg" viewBox="0 0 200 200">
+                <div class="feature-graphic graphic-kpi">
+                    <svg class="kpi-svg" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
                                 <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <rect x="40" y="80" width="120" height="20" rx="4" fill="url(#gradient1)" opacity="0.9"/>
-                        <rect x="40" y="110" width="120" height="20" rx="4" fill="url(#gradient1)" opacity="0.7"/>
-                        <rect x="40" y="140" width="120" height="20" rx="4" fill="url(#gradient1)" opacity="0.5"/>
+                        <rect x="50" y="80" width="100" height="12" rx="6" fill="url(#gradient1)" opacity="0.9"/>
+                        <rect x="50" y="100" width="100" height="12" rx="6" fill="url(#gradient1)" opacity="0.9"/>
+                        <rect x="50" y="120" width="100" height="12" rx="6" fill="url(#gradient1)" opacity="0.9"/>
                     </svg>
                 </div>
-                <h3 class="feature-title">Technological Base</h3>
-                <p class="feature-description">Infrastructure on the TON blockchain, ensuring speed, security, and scalability. The foundation for product operation and mass adoption.</p>
+                <h3 class="feature-title" data-eng="KPI Bonuses" data-rus="Бонусы KPI">Бонусы KPI</h3>
+                <p class="feature-description" data-eng="New KPI bonus system for leaders with a monthly pool of 1,050,000 DRZ. Remuneration is paid for fulfilling structural volume conditions according to your rank, with no more than 40% from the strongest branch being taken into account. Leaders can receive bonuses for all KPI levels corresponding to their status and below." data-rus="Новая KPI-система бонусов для лидеров с ежемесячным пулом в 1 050 000 DRZ. Вознаграждение выплачивается за выполнение условий по объёмам структуры в соответствии с вашим рангом, при этом учитывается не более 40% от самой сильной ветки. Лидеры могут получать бонусы за все KPI-уровни, соответствующие их статусу и ниже.">Новая KPI-система бонусов для лидеров с ежемесячным пулом в 1 050 000 DRZ. Вознаграждение выплачивается за выполнение условий по объёмам структуры в соответствии с вашим рангом, при этом учитывается не более 40% от самой сильной ветки. Лидеры могут получать бонусы за все KPI-уровни, соответствующие их статусу и ниже.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">02</div>
-                <div class="feature-graphic graphic-clock">
-                    <svg class="clock-svg" viewBox="0 0 200 200">
+                <div class="feature-graphic graphic-p2p">
+                    <svg class="p2p-svg" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
                                 <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <circle cx="100" cy="100" r="50" fill="none" stroke="url(#gradient2)" stroke-width="3" opacity="0.8"/>
-                        <circle cx="100" cy="100" r="4" fill="url(#gradient2)"/>
-                        <line x1="100" y1="100" x2="100" y2="70" stroke="url(#gradient2)" stroke-width="3" stroke-linecap="round"/>
-                        <line x1="100" y1="100" x2="120" y2="100" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="100" cy="100" r="45" fill="none" stroke="url(#gradient2)" stroke-width="2" opacity="0.6"/>
+                        <circle cx="100" cy="100" r="12" fill="url(#gradient2)" opacity="0.9"/>
                     </svg>
                 </div>
-                <h3 class="feature-title">Transparent Economy</h3>
-                <p class="feature-description">All processes in DRAZZE operate via smart contracts. Accruals, token distribution, and participation in the ecosystem occur according to pre-set rules, without manual control.</p>
+                <h3 class="feature-title" data-eng="Built-in P2P Exchanger" data-rus="Встроенный P2P-обменник">Встроенный P2P-обменник</h3>
+                <p class="feature-description" data-eng="Operates on a smart contract, ensuring fully automated and secure 24/7 transactions. Staking accruals occur every second, and tokens can be purchased directly from other participants via a bot at market price." data-rus="Работает на смарт-контракте, обеспечивая полностью автоматизированные и безопасные сделки 24/7. Стейкинг-начисления происходят ежесекундно, а токены можно приобретать напрямую у других участников через бота по рыночной цене.">Работает на смарт-контракте, обеспечивая полностью автоматизированные и безопасные сделки 24/7. Стейкинг-начисления происходят ежесекундно, а токены можно приобретать напрямую у других участников через бота по рыночной цене.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">03</div>
-                <div class="feature-graphic graphic-cube">
-                    <svg class="cube-svg" viewBox="0 0 200 200">
+                <div class="feature-graphic graphic-vpn">
+                    <svg class="vpn-svg" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
                                 <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <path d="M 100 60 L 140 80 L 140 120 L 100 140 L 60 120 L 60 80 Z" fill="url(#gradient3)" opacity="0.9"/>
-                        <path d="M 100 60 L 140 80 L 140 120 L 100 140" fill="url(#gradient3)" opacity="0.6"/>
-                        <path d="M 140 80 L 140 120 L 100 140 L 100 100" fill="url(#gradient3)" opacity="0.4"/>
+                        <path d="M 100 60 L 130 80 L 130 120 L 100 140 L 70 120 L 70 80 Z" fill="url(#gradient3)" opacity="0.9"/>
+                        <path d="M 100 60 L 130 80 L 130 120 L 100 140" fill="url(#gradient3)" opacity="0.6"/>
+                        <path d="M 130 80 L 130 120 L 100 140 L 100 100" fill="url(#gradient3)" opacity="0.4"/>
                     </svg>
                 </div>
-                <h3 class="feature-title">Web3 Products</h3>
-                <p class="feature-description">DRAZZE creates and develops market-demanded Web3 products with clear demand, user interest, and scaling potential.</p>
+                <h3 class="feature-title" data-eng="VPN" data-rus="VPN">VPN</h3>
+                <p class="feature-description" data-eng="DRAZZE provides its own secure VPN as a gift after activating a contract for 42 tokens. The number of available servers for connection depends on your rank in the project. VPN allows bypassing blocks and provides stable access to internet resources." data-rus="DRAZZE предоставляет собственный безопасный VPN в подарок после активации контракта на 42 токена. Количество доступных серверов для подключения зависит от вашего ранга в проекте. VPN позволяет обходить блокировки и обеспечивает стабильный доступ к интернет-ресурсам.">DRAZZE предоставляет собственный безопасный VPN в подарок после активации контракта на 42 токена. Количество доступных серверов для подключения зависит от вашего ранга в проекте. VPN позволяет обходить блокировки и обеспечивает стабильный доступ к интернет-ресурсам.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">04</div>
-                <div class="feature-graphic graphic-community">
-                    <svg class="community-svg" viewBox="0 0 200 200">
+                <div class="feature-graphic graphic-verification">
+                    <svg class="verification-svg" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
                                 <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <circle cx="80" cy="100" r="25" fill="url(#gradient4)" opacity="0.9"/>
-                        <circle cx="120" cy="100" r="25" fill="url(#gradient4)" opacity="0.9"/>
-                        <path d="M 55 130 Q 80 120, 100 130 T 145 130" stroke="url(#gradient4)" stroke-width="3" fill="none" opacity="0.8"/>
+                        <path d="M 70 80 Q 100 60, 130 80 Q 130 100, 110 120 Q 100 130, 90 120 Q 70 100, 70 80" fill="url(#gradient4)" opacity="0.8"/>
+                        <path d="M 90 100 Q 100 90, 110 100 Q 110 110, 105 115 Q 100 120, 95 115 Q 90 110, 90 100" fill="url(#gradient4)" opacity="0.9"/>
+                        <circle cx="105" cy="107" r="4" fill="url(#gradient4)" opacity="1"/>
                     </svg>
                 </div>
-                <h3 class="feature-title">Active Community</h3>
-                <p class="feature-description">A strong and engaged community shaping the future of the platform. People are involved in products, use tokens, participate in mechanics, and receive direct benefits from the ecosystem's growth.</p>
+                <h3 class="feature-title" data-eng="Blockchain Verification" data-rus="Верификация блокчейна">Верификация блокчейна</h3>
+                <p class="feature-description" data-eng="The DRAZZE token has passed official TON blockchain verification, confirming a full smart contract audit and high technical reliability of the project. This is an important step, increasing trust and opening the way for listing on decentralized exchanges." data-rus="Токен DRAZZE прошёл официальную верификацию блокчейна TON, подтверждающую полную проверку смарт-контракта и высокую техническую надёжность проекта. Это важный шаг, повышающий доверие и открывающий путь к листингу на децентрализованных биржах.">Токен DRAZZE прошёл официальную верификацию блокчейна TON, подтверждающую полную проверку смарт-контракта и высокую техническую надёжность проекта. Это важный шаг, повышающий доверие и открывающий путь к листингу на децентрализованных биржах.</p>
             </div>
         </div>
     </section>
@@ -404,6 +495,228 @@
                             </div>
                             </div>
                         </div>
+    </section>
+
+    <!-- Ways to Earn Section -->
+    <section id="earn" class="earn-section">
+        <div class="earn-container">
+            <h2 class="earn-section-title" data-eng="Ways to Earn with Drazze" data-rus="Способы заработка с помощью Drazze">Способы заработка с помощью Drazze</h2>
+            
+            <div class="earn-slider-wrapper">
+                <button class="earn-slider-arrow earn-arrow-prev" aria-label="Previous slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                
+                <div class="earn-slider">
+                    <div class="earn-slide active">
+                        <div class="earn-slide-number">01</div>
+                        <div class="earn-slide-icon">
+                            <svg viewBox="0 0 200 200">
+                                <defs>
+                                    <linearGradient id="earnGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="100" cy="100" r="60" fill="none" stroke="url(#earnGrad1)" stroke-width="4" opacity="0.8"/>
+                                <circle cx="100" cy="100" r="40" fill="url(#earnGrad1)" opacity="0.6"/>
+                                <path d="M 100 60 L 100 80 L 120 100 L 100 120 L 80 100 Z" fill="url(#earnGrad1)" opacity="0.9"/>
+                            </svg>
+                        </div>
+                        <h3 class="earn-slide-title" data-eng="Staking" data-rus="Стейкинг">Стейкинг</h3>
+                        <p class="earn-slide-description" data-eng="Tokens remain in your wallet, and you receive passive income from 15% to 22% per month, approximately 0.6% per day. For example, $1,000 gives from $150 to $220 profit per month." data-rus="Токены остаются в вашем кошельке, а вы получаете пассивный доход от 15 до 22% в месяц, примерно 0,6% в день. Например, 1000 долларов дает от 150 до 220 долларов прибыли в месяц.">Токены остаются в вашем кошельке, а вы получаете пассивный доход от 15 до 22% в месяц, примерно 0,6% в день. Например, 1000 долларов дает от 150 до 220 долларов прибыли в месяц.</p>
+                    </div>
+                    
+                    <div class="earn-slide">
+                        <div class="earn-slide-number">02</div>
+                        <div class="earn-slide-icon">
+                            <svg viewBox="0 0 200 200">
+                                <defs>
+                                    <linearGradient id="earnGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="100" cy="80" r="20" fill="url(#earnGrad2)" opacity="0.9"/>
+                                <circle cx="70" cy="120" r="15" fill="url(#earnGrad2)" opacity="0.7"/>
+                                <circle cx="130" cy="120" r="15" fill="url(#earnGrad2)" opacity="0.7"/>
+                                <line x1="100" y1="100" x2="70" y2="105" stroke="url(#earnGrad2)" stroke-width="3" opacity="0.6"/>
+                                <line x1="100" y1="100" x2="130" y2="105" stroke="url(#earnGrad2)" stroke-width="3" opacity="0.6"/>
+                            </svg>
+                        </div>
+                        <h3 class="earn-slide-title" data-eng="Affiliate Program" data-rus="Партнёрская программа">Партнёрская программа</h3>
+                        <p class="earn-slide-description" data-eng="DRAZZE allows you to earn 5% from the first line and additional rewards up to 12 levels deep. For example, with regular growth of your network — if each participant attracts just one person per week — in just three months the structure can exceed 10,000 people, creating potential for high passive income. With the growth of leadership statuses, new levels of affiliate income open up, staking profits increase, and the Commander status gives access to weekly payments from the KPI bonus pool." data-rus="DRAZZE позволяет получать доход 5% с первой линии и дополнительное вознаграждение до 12 уровней в глубину. Например, при регулярном росте вашей сети — если каждый участник привлекает всего по одному человеку в неделю — уже через три месяца структура может превысить 10 000 человек, создавая потенциал для высокого пассивного дохода. С ростом лидерских статусов открываются новые уровни партнёрского дохода, увеличивается прибыль от стейкинга, а статус Commander даёт доступ к еженедельным выплатам из KPI-бонусного пула.">DRAZZE позволяет получать доход 5% с первой линии и дополнительное вознаграждение до 12 уровней в глубину. Например, при регулярном росте вашей сети — если каждый участник привлекает всего по одному человеку в неделю — уже через три месяца структура может превысить 10 000 человек, создавая потенциал для высокого пассивного дохода. С ростом лидерских статусов открываются новые уровни партнёрского дохода, увеличивается прибыль от стейкинга, а статус Commander даёт доступ к еженедельным выплатам из KPI-бонусного пула.</p>
+                    </div>
+                    
+                    <div class="earn-slide">
+                        <div class="earn-slide-number">03</div>
+                        <div class="earn-slide-icon">
+                            <svg viewBox="0 0 200 200">
+                                <defs>
+                                    <linearGradient id="earnGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <rect x="50" y="70" width="100" height="60" rx="8" fill="url(#earnGrad3)" opacity="0.8"/>
+                                <rect x="60" y="80" width="80" height="40" rx="4" fill="url(#earnGrad3)" opacity="0.6"/>
+                                <circle cx="100" cy="100" r="8" fill="url(#earnGrad3)" opacity="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="earn-slide-title" data-eng="KPI Pool" data-rus="KPI-пул">KPI-пул</h3>
+                        <p class="earn-slide-description" data-eng="Weekly KPI pool of 45,000 DRZ is distributed among leaders who have closed their levels. Commander status brings an average of about 450 DRZ ($650) per week. Further ranks — Captain, General, Diamond, Legend and Marshal — sequentially increase your income and depth of opportunities, while maintaining the right to all bonuses of previous statuses." data-rus="Еженедельный KPI-пул в размере 45 000 DRZ распределяется между лидерами, закрывшими свои уровни. Статус Commander приносит в среднем около 450 DRZ ($650) в неделю. Дальнейшие ранги — Captain, General, Diamond, Legend и Marshal — последовательно увеличивают ваш доход и глубину возможностей, сохраняя при этом право на все бонусы предыдущих статусов.">Еженедельный KPI-пул в размере 45 000 DRZ распределяется между лидерами, закрывшими свои уровни. Статус Commander приносит в среднем около 450 DRZ ($650) в неделю. Дальнейшие ранги — Captain, General, Diamond, Legend и Marshal — последовательно увеличивают ваш доход и глубину возможностей, сохраняя при этом право на все бонусы предыдущих статусов.</p>
+                    </div>
+                    
+                    <div class="earn-slide">
+                        <div class="earn-slide-number">04</div>
+                        <div class="earn-slide-icon">
+                            <svg viewBox="0 0 200 200">
+                                <defs>
+                                    <linearGradient id="earnGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="100" cy="100" r="50" fill="url(#earnGrad4)" opacity="0.3"/>
+                                <path d="M 100 60 L 120 90 L 140 100 L 120 110 L 100 140 L 80 110 L 60 100 L 80 90 Z" fill="url(#earnGrad4)" opacity="0.9"/>
+                                <circle cx="100" cy="100" r="20" fill="url(#earnGrad4)" opacity="0.7"/>
+                            </svg>
+                        </div>
+                        <h3 class="earn-slide-title" data-eng="Summary" data-rus="Итог">Итог</h3>
+                        <p class="earn-slide-description" data-eng="In DRAZZE, your income is formed from three powerful sources: staking profits, affiliate program, and weekly leadership bonuses. This unique combination creates the opportunity for stable earnings, which can range from one to hundreds of thousands of dollars weekly. Start building your future with DRAZZE today." data-rus="В DRAZZE ваши доходы формируются из трёх мощных источников: прибыли от стейкинга, партнёрской программы и еженедельных лидерских бонусов. Эта уникальная комбинация создаёт возможность для стабильного заработка, который может составлять от одной до сотен тысяч долларов еженедельно. Начните строить своё будущее с DRAZZE уже сегодня.">В DRAZZE ваши доходы формируются из трёх мощных источников: прибыли от стейкинга, партнёрской программы и еженедельных лидерских бонусов. Эта уникальная комбинация создаёт возможность для стабильного заработка, который может составлять от одной до сотен тысяч долларов еженедельно. Начните строить своё будущее с DRAZZE уже сегодня.</p>
+                    </div>
+                </div>
+                
+                <button class="earn-slider-arrow earn-arrow-next" aria-label="Next slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="earn-slider-indicators">
+                <span class="earn-indicator active" data-slide="0"></span>
+                <span class="earn-indicator" data-slide="1"></span>
+                <span class="earn-indicator" data-slide="2"></span>
+                <span class="earn-indicator" data-slide="3"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Ways Section -->
+    <section class="three-ways-section">
+        <div class="wave-background"></div>
+        <div class="three-ways-container">
+            <div class="three-ways-layout">
+                <div class="for-whom-section fade-in-up">
+                    <h3 class="for-whom-title" data-eng="FOR WHOM DRAZZE" data-rus="ДЛЯ КОГО DRAZZE">ДЛЯ КОГО DRAZZE</h3>
+                    <ul class="for-whom-list">
+                        <li class="for-whom-item" data-eng="For investors seeking long-term stability" data-rus="Для инвесторов, ищущих долгосрочную стабильность">
+                            Для инвесторов, ищущих долгосрочную стабильность
+                        </li>
+                        <li class="for-whom-item" data-eng="For entrepreneurs ready to build and scale a business" data-rus="Для предпринимателей, готовых строить и масштабировать бизнес">
+                            Для предпринимателей, готовых строить и масштабировать бизнес
+                        </li>
+                        <li class="for-whom-item" data-eng="For leaders who want to participate in the development of a new economy" data-rus="Для лидеров, которые хотят участвовать в развитии новой экономики">
+                            Для лидеров, которые хотят участвовать в развитии новой экономики
+                        </li>
+                        <li class="for-whom-item" data-eng="For those who want to be part of this innovative ecosystem" data-rus="Для тех, кто хочет быть частью этой инновационной экосистемы">
+                            Для тех, кто хочет быть частью этой инновационной экосистемы
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="way-card-right fade-in-up">
+                    <div class="price-chart-container">
+                        <img src="график.png" alt="Chart" class="price-chart-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="pools" class="security-section">
+        <div class="security-container">
+            <div class="security-content">
+                <h2 class="security-title" data-eng="IGAMING POOLS SYSTEM" data-rus="СИСТЕМА IGAMING ПУЛОВ">
+                    <span class="title-line">IGAMING POOLS SYSTEM</span>
+                </h2>
+            </div>
+            
+            <div class="security-cards-wrapper">
+                <div class="security-cards-slider" id="securityCardsSlider">
+                    <div class="security-card">
+                        <h3 class="security-card-title" data-eng="POOL LOGIC" data-rus="ЛОГИКА ПУЛОВ">ЛОГИКА ПУЛОВ</h3>
+                        <p class="security-card-text" data-eng="It's about a percentage of the entire net profit of the iGaming platform, not from a separate product or direction. The fewer participants in the pool, the higher each one's share. The pool percentage does not change. Only the participant's share changes." data-rus="Речь идёт о проценте от всей чистой прибыли iGaming-платформы, а не от отдельного продукта или направления. Чем меньше участников в пуле, тем выше доля каждого. Процент пула не меняется. Меняется только доля участника.">
+                            Речь идёт о <strong>проценте</strong> от всей чистой прибыли iGaming-платформы, а не от отдельного продукта или направления. Чем меньше участников в пуле, <strong>тем выше доля каждого</strong>. Процент пула не меняется. Меняется только доля участника.
+                        </p>
+                        <div class="security-list-section">
+                            <h4 class="security-list-title" data-eng="THE HIGHER THE POOL:" data-rus="ЧЕМ ВЫШЕ ПУЛ:">ЧЕМ ВЫШЕ ПУЛ:</h4>
+                            <ul class="security-list">
+                                <li data-eng="The higher the share" data-rus="Тем выше доля">Тем выше доля</li>
+                                <li data-eng="The fewer participants" data-rus="Тем меньше участников">Тем меньше участников</li>
+                                <li data-eng="The deeper the level of participation in the DRAZZE economy" data-rus="Тем глубже уровень участия в экономике DRAZZE">Тем глубже уровень участия в экономике DRAZZE</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="security-card">
+                        <h3 class="security-card-title" data-eng="PARTICIPANTS OF HOLDER-POOLS:" data-rus="УЧАСТНИКИ ХОЛДЕР-ПУЛОВ:">УЧАСТНИКИ ХОЛДЕР-ПУЛОВ:</h3>
+                        <ul class="security-list">
+                            <li data-eng="Receive a share in the business profit" data-rus="Получают долю в прибыли бизнеса">Получают долю в прибыли бизнеса</li>
+                            <li data-eng="Become co-owners of the iGaming-direction DRAZZE" data-rus="Становятся совладельцами iGaming-направления DRAZZE">Становятся совладельцами iGaming-направления DRAZZE</li>
+                            <li data-eng="Participate not in remuneration, but in the distribution of ecosystem income" data-rus="Участвуют не в вознаграждении, а в распределении дохода экосистемы">Участвуют не в вознаграждении, а в распределении дохода экосистемы</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="security-card">
+                        <h3 class="security-card-title" data-eng="PROFIT WITHIN THE POOL IS DISTRIBUTED EQUALLY" data-rus="ПРИБЫЛЬ ВНУТРИ ПУЛА РАСПРЕДЕЛЯЕТСЯ ПОРОВНУ">ПРИБЫЛЬ ВНУТРИ ПУЛА РАСПРЕДЕЛЯЕТСЯ ПОРОВНУ МЕЖДУ УЧАСТНИКАМИ</h3>
+                        <div class="pools-list">
+                            <div class="pool-item" data-eng="Pool 1 (up to 100 spots) → 0.02% personal share" data-rus="Пул 1 (до 100 мест) → 0.02% личная доля каждого участника">
+                                <span class="pool-name">Пул 1 (до 100 мест)</span>
+                                <span class="pool-arrow">→</span>
+                                <span class="pool-percentage">0.02% личная доля каждого участника</span>
+                            </div>
+                            <div class="pool-item" data-eng="Pool 2 (up to 50 spots) → 0.04% personal share" data-rus="Пул 2 (до 50 мест) → 0.04% личная доля каждого участника">
+                                <span class="pool-name">Пул 2 (до 50 мест)</span>
+                                <span class="pool-arrow">→</span>
+                                <span class="pool-percentage">0.04% личная доля каждого участника</span>
+                            </div>
+                            <div class="pool-item" data-eng="Pool 3 (up to 30 spots) → 0.066% personal share" data-rus="Пул 3 (до 30 мест) → 0.066% личная доля каждого участника">
+                                <span class="pool-name">Пул 3 (до 30 мест)</span>
+                                <span class="pool-arrow">→</span>
+                                <span class="pool-percentage">0.066% личная доля каждого участника</span>
+                            </div>
+                            <div class="pool-item" data-eng="Pool 4 (up to 20 spots) → 0.10% personal share" data-rus="Пул 4 (до 20 мест) → 0.10% личная доля каждого участника">
+                                <span class="pool-name">Пул 4 (до 20 мест)</span>
+                                <span class="pool-arrow">→</span>
+                                <span class="pool-percentage">0.10% личная доля каждого участника</span>
+                            </div>
+                            <div class="pool-item" data-eng="Pool 5 (up to 10 spots) → 0.20% personal share" data-rus="Пул 5 (до 10 мест) → 0.20% личная доля каждого участника">
+                                <span class="pool-name">Пул 5 (до 10 мест)</span>
+                                <span class="pool-arrow">→</span>
+                                <span class="pool-percentage">0.20% личная доля каждого участника</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="security-card">
+                        <div class="security-highlight-box" data-eng="10% of iGaming net profit → goes into pools" data-rus="10% чистой прибыли iGaming → направляется в пулы">
+                            10% чистой прибыли iGaming → направляется в пулы
+                        </div>
+                        <h4 class="security-list-title" data-eng="IN EACH POOL:" data-rus="В КАЖДОМ ПУЛЕ:">В КАЖДОМ ПУЛЕ:</h4>
+                        <ul class="security-list">
+                            <li data-eng="Limited number of spots (total 210)" data-rus="Ограниченное число мест (всего 210)">Ограниченное число мест (всего 210)</li>
+                            <li data-eng="Fixed share (from 0.02% to 0.2%)" data-rus="Фиксированная доля (от 0.02% до 0.2%)">Фиксированная доля (от 0.02% до 0.2%)</li>
+                            <li data-eng="Participants receive a percentage of the iGaming platform's net profit" data-rus="Участники получают процент от чистой прибыли iGaming платформы">Участники получают процент от чистой прибыли iGaming платформы</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- iGaming Section -->
@@ -670,127 +983,6 @@
                 </div>
     </section>
 
-    <!-- Three Ways Section -->
-    <section class="three-ways-section">
-        <div class="wave-background"></div>
-        <div class="three-ways-container">
-            <div class="three-ways-header">
-                <h2 class="three-ways-title">Three ways to win with Drazze</h2>
-                <p class="three-ways-description">
-                    Whether you're swapping, building, or providing liquidity, Drazze has the tools and opportunities designed specifically for your goals.
-                </p>
-            </div>
-            
-            <div class="three-ways-layout">
-                <div class="for-whom-section fade-in-up">
-                    <h3 class="for-whom-title" data-eng="FOR WHOM DRAZZE" data-rus="ДЛЯ КОГО DRAZZE">ДЛЯ КОГО DRAZZE</h3>
-                    <ul class="for-whom-list">
-                        <li class="for-whom-item" data-eng="For investors seeking long-term stability" data-rus="Для инвесторов, ищущих долгосрочную стабильность">
-                            Для инвесторов, ищущих долгосрочную стабильность
-                        </li>
-                        <li class="for-whom-item" data-eng="For entrepreneurs ready to build and scale a business" data-rus="Для предпринимателей, готовых строить и масштабировать бизнес">
-                            Для предпринимателей, готовых строить и масштабировать бизнес
-                        </li>
-                        <li class="for-whom-item" data-eng="For leaders who want to participate in the development of a new economy" data-rus="Для лидеров, которые хотят участвовать в развитии новой экономики">
-                            Для лидеров, которые хотят участвовать в развитии новой экономики
-                        </li>
-                        <li class="for-whom-item" data-eng="For those who want to be part of this innovative ecosystem" data-rus="Для тех, кто хочет быть частью этой инновационной экосистемы">
-                            Для тех, кто хочет быть частью этой инновационной экосистемы
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="way-card-right fade-in-up">
-                    <div class="price-chart-container">
-                        <img src="график.png" alt="Chart" class="price-chart-image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Security Section -->
-    <section id="pools" class="security-section">
-        <div class="security-container">
-            <div class="security-content">
-                <h2 class="security-title" data-eng="IGAMING POOLS SYSTEM" data-rus="СИСТЕМА IGAMING ПУЛОВ">
-                    <span class="title-line">IGAMING POOLS SYSTEM</span>
-                </h2>
-            </div>
-            
-            <div class="security-cards-wrapper">
-                <div class="security-cards-slider" id="securityCardsSlider">
-                    <div class="security-card">
-                        <h3 class="security-card-title" data-eng="POOL LOGIC" data-rus="ЛОГИКА ПУЛОВ">ЛОГИКА ПУЛОВ</h3>
-                        <p class="security-card-text" data-eng="It's about a percentage of the entire net profit of the iGaming platform, not from a separate product or direction. The fewer participants in the pool, the higher each one's share. The pool percentage does not change. Only the participant's share changes." data-rus="Речь идёт о проценте от всей чистой прибыли iGaming-платформы, а не от отдельного продукта или направления. Чем меньше участников в пуле, тем выше доля каждого. Процент пула не меняется. Меняется только доля участника.">
-                            Речь идёт о <strong>проценте</strong> от всей чистой прибыли iGaming-платформы, а не от отдельного продукта или направления. Чем меньше участников в пуле, <strong>тем выше доля каждого</strong>. Процент пула не меняется. Меняется только доля участника.
-                        </p>
-                        <div class="security-list-section">
-                            <h4 class="security-list-title" data-eng="THE HIGHER THE POOL:" data-rus="ЧЕМ ВЫШЕ ПУЛ:">ЧЕМ ВЫШЕ ПУЛ:</h4>
-                            <ul class="security-list">
-                                <li data-eng="The higher the share" data-rus="Тем выше доля">Тем выше доля</li>
-                                <li data-eng="The fewer participants" data-rus="Тем меньше участников">Тем меньше участников</li>
-                                <li data-eng="The deeper the level of participation in the DRAZZE economy" data-rus="Тем глубже уровень участия в экономике DRAZZE">Тем глубже уровень участия в экономике DRAZZE</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="security-card">
-                        <h3 class="security-card-title" data-eng="PARTICIPANTS OF HOLDER-POOLS:" data-rus="УЧАСТНИКИ ХОЛДЕР-ПУЛОВ:">УЧАСТНИКИ ХОЛДЕР-ПУЛОВ:</h3>
-                        <ul class="security-list">
-                            <li data-eng="Receive a share in the business profit" data-rus="Получают долю в прибыли бизнеса">Получают долю в прибыли бизнеса</li>
-                            <li data-eng="Become co-owners of the iGaming-direction DRAZZE" data-rus="Становятся совладельцами iGaming-направления DRAZZE">Становятся совладельцами iGaming-направления DRAZZE</li>
-                            <li data-eng="Participate not in remuneration, but in the distribution of ecosystem income" data-rus="Участвуют не в вознаграждении, а в распределении дохода экосистемы">Участвуют не в вознаграждении, а в распределении дохода экосистемы</li>
-                        </ul>
-                            </div>
-                    
-                    <div class="security-card">
-                        <h3 class="security-card-title" data-eng="PROFIT WITHIN THE POOL IS DISTRIBUTED EQUALLY" data-rus="ПРИБЫЛЬ ВНУТРИ ПУЛА РАСПРЕДЕЛЯЕТСЯ ПОРОВНУ">ПРИБЫЛЬ ВНУТРИ ПУЛА РАСПРЕДЕЛЯЕТСЯ ПОРОВНУ МЕЖДУ УЧАСТНИКАМИ</h3>
-                        <div class="pools-list">
-                            <div class="pool-item" data-eng="Pool 1 (up to 100 spots) → 0.02% personal share" data-rus="Пул 1 (до 100 мест) → 0.02% личная доля каждого участника">
-                                <span class="pool-name">Пул 1 (до 100 мест)</span>
-                                <span class="pool-arrow">→</span>
-                                <span class="pool-percentage">0.02% личная доля каждого участника</span>
-                            </div>
-                            <div class="pool-item" data-eng="Pool 2 (up to 50 spots) → 0.04% personal share" data-rus="Пул 2 (до 50 мест) → 0.04% личная доля каждого участника">
-                                <span class="pool-name">Пул 2 (до 50 мест)</span>
-                                <span class="pool-arrow">→</span>
-                                <span class="pool-percentage">0.04% личная доля каждого участника</span>
-                            </div>
-                            <div class="pool-item" data-eng="Pool 3 (up to 30 spots) → 0.066% personal share" data-rus="Пул 3 (до 30 мест) → 0.066% личная доля каждого участника">
-                                <span class="pool-name">Пул 3 (до 30 мест)</span>
-                                <span class="pool-arrow">→</span>
-                                <span class="pool-percentage">0.066% личная доля каждого участника</span>
-                            </div>
-                            <div class="pool-item" data-eng="Pool 4 (up to 20 spots) → 0.10% personal share" data-rus="Пул 4 (до 20 мест) → 0.10% личная доля каждого участника">
-                                <span class="pool-name">Пул 4 (до 20 мест)</span>
-                                <span class="pool-arrow">→</span>
-                                <span class="pool-percentage">0.10% личная доля каждого участника</span>
-                            </div>
-                            <div class="pool-item" data-eng="Pool 5 (up to 10 spots) → 0.20% personal share" data-rus="Пул 5 (до 10 мест) → 0.20% личная доля каждого участника">
-                                <span class="pool-name">Пул 5 (до 10 мест)</span>
-                                <span class="pool-arrow">→</span>
-                                <span class="pool-percentage">0.20% личная доля каждого участника</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="security-card">
-                        <div class="security-highlight-box" data-eng="10% of iGaming net profit → goes into pools" data-rus="10% чистой прибыли iGaming → направляется в пулы">
-                            10% чистой прибыли iGaming → направляется в пулы
-                        </div>
-                        <h4 class="security-list-title" data-eng="IN EACH POOL:" data-rus="В КАЖДОМ ПУЛЕ:">В КАЖДОМ ПУЛЕ:</h4>
-                        <ul class="security-list">
-                            <li data-eng="Limited number of spots (total 210)" data-rus="Ограниченное число мест (всего 210)">Ограниченное число мест (всего 210)</li>
-                            <li data-eng="Fixed share (from 0.02% to 0.2%)" data-rus="Фиксированная доля (от 0.02% до 0.2%)">Фиксированная доля (от 0.02% до 0.2%)</li>
-                            <li data-eng="Participants receive a percentage of the iGaming platform's net profit" data-rus="Участники получают процент от чистой прибыли iGaming платформы">Участники получают процент от чистой прибыли iGaming платформы</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Audited Smart Contract Section -->
     <section class="audited-section">
         <div class="audited-container">
@@ -908,10 +1100,11 @@
             </div>
             
                 <nav class="footer-nav">
-                    <a href="#features" class="footer-nav-link" data-eng="Foundation" data-rus="Фундамент">Foundation</a>
+                    <a href="#features" class="footer-nav-link" data-eng="Development" data-rus="Развитие">Развитие</a>
                     <a href="#tokenomics" class="footer-nav-link" data-eng="Tokenomics" data-rus="Токеномика">Tokenomics</a>
+                    <a href="#earn" class="footer-nav-link" data-eng="Ways to Earn" data-rus="Заработок">Заработок</a>
+                    <a href="#pools" class="footer-nav-link" data-eng="Pools" data-rus="Пулы">Пулы</a>
                     <a href="#igaming" class="footer-nav-link" data-eng="iGaming" data-rus="iGaming">iGaming</a>
-                    <a href="#pools" class="footer-nav-link" data-eng="Pools" data-rus="Пулы">Pools</a>
                     <a href="#faq" class="footer-nav-link" data-eng="FAQ" data-rus="FAQ">FAQ</a>
                 </nav>
                 
