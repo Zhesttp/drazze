@@ -46,16 +46,29 @@ const menuToggle = document.getElementById('mobileMenuToggle');
 const navMenu = document.getElementById('navMenu');
 
 if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = navMenu.classList.contains('active');
+        
         navMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        if (!isActive) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 
@@ -64,6 +77,7 @@ if (menuToggle && navMenu) {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
 }
