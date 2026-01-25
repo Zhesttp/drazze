@@ -41,46 +41,7 @@ if (document.readyState === 'loading') {
     initLoadingScreen();
 }
 
-// Mobile Menu Toggle
-const menuToggle = document.getElementById('mobileMenuToggle');
-const navMenu = document.getElementById('navMenu');
-
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isActive = navMenu.classList.contains('active');
-        
-        navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        if (!isActive) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
-            !menuToggle.contains(e.target)) {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Close menu when a link is clicked
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-}
+// Mobile Menu Toggle - removed duplicate, handled in initMobileMenu below
 
 // FAQ Accordion
 function initFAQ() {
@@ -118,8 +79,8 @@ if (document.readyState === 'loading') {
     initFAQ();
 }
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scrolling for anchor links (excluding mobile menu links which have their own handler)
+document.querySelectorAll('a[href^="#"]:not(.nav-link)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -220,7 +181,7 @@ const translations = {
             allTimeSwaps: "All-time swaps"
         },
         features: {
-            sectionTitle: "Drazze - it's about development",
+            sectionTitle: "Implemented in 3 months",
             title1: "KPI Bonuses",
             desc1: "New KPI bonus system for leaders with a monthly pool of 1,050,000 DRZ. Remuneration is paid for fulfilling structural volume conditions according to your rank, with no more than 40% from the strongest branch being taken into account. Leaders can receive bonuses for all KPI levels corresponding to their status and below.",
             title2: "Built-in P2P Exchanger",
@@ -250,7 +211,7 @@ const translations = {
         staking: {
             title: "DeFi Staking",
             maxYield: "Maximum yield",
-            description: "Participate in DRZ token staking and receive passive income from 15% to 22% per month. Tokens will be mined gradually over 3-4 years through the DeFi staking mechanism.",
+            description: "Hold DRZ tokens and receive rewards from 15% to 22% per month. DeFi staking is distributed gradually, ensuring long-term sustainability and growth of the DRAZZE ecosystem.",
             feature1: "High yield",
             feature2: "Blockchain security",
             feature3: "Transparency of operations"
@@ -285,6 +246,7 @@ const translations = {
             category6: "Sportsbook",
             category7: "Tournaments",
             category8: "VIP System",
+            launchLabel: "iGaming Platform Launch Date",
             launchDate: "February-March 2026"
         },
         partners: {
@@ -302,13 +264,15 @@ const translations = {
         earn: {
             title: "Ways to Earn with Drazze",
             slide1Title: "Staking",
-            slide1Desc: "Tokens remain in your wallet, and you receive passive income from 15% to 22% per month, approximately 0.6% per day. For example, $1,000 gives from $150 to $220 profit per month.",
+            slide1Desc: "You receive rewards from the company by holding DRZ token. DeFi Staking brings from 15% to 22% per month and is a key element of the DRAZZE economic model, encouraging long-term participation and supporting market stability.",
             slide2Title: "Affiliate Program",
-            slide2Desc: "DRAZZE allows you to earn 5% from the first line and additional rewards up to 12 levels deep. For example, with regular growth of your network — if each participant attracts just one person per week — in just three months the structure can exceed 10,000 people, creating potential for high passive income. With the growth of leadership statuses, new levels of affiliate income open up, staking profits increase, and the Commander status gives access to weekly payments from the KPI bonus pool.",
-            slide3Title: "KPI Pool",
-            slide3Desc: "Weekly KPI pool of 45,000 DRZ is distributed among leaders who have closed their levels. Commander status brings an average of about 450 DRZ ($650) per week. Further ranks — Captain, General, Diamond, Legend and Marshal — sequentially increase your income and depth of opportunities, while maintaining the right to all bonuses of previous statuses.",
-            slide4Title: "Summary",
-            slide4Desc: "In DRAZZE, your income is formed from three powerful sources: staking profits, affiliate program, and weekly leadership bonuses. This unique combination creates the opportunity for stable earnings, which can range from one to hundreds of thousands of dollars weekly. Start building your future with DRAZZE today."
+            slide2Desc: "Earn on the development of the DRAZZE ecosystem. The partner model allows you to receive rewards up to 12 levels deep for attracting both partners and holders.",
+            slide3Title: "KPI and Leadership Bonuses",
+            slide3Desc: "DRAZZE rewards active participants. The company has frozen 1,000,050 DRZ which are in staking until the end of emission and form a fund from which leadership and KPI bonuses are distributed. Payments depend on achieved indicators, turnover and contribution to ecosystem development.",
+            slide4Title: "iGaming Pool",
+            slide4Desc: "Net profit from iGaming is directed to pools. Each pool: Has a limited number of spots (210 total). Provides an exclusive share (from 0.02% to 0.2%) in profit. Pool participants receive a fixed percentage of the iGaming platform's net profit.",
+            slide5Title: "Summary",
+            slide5Desc: "Income in DRAZZE is formed from four directions: DeFi staking, affiliate program, leadership bonuses and iGaming pools. This is a system that works for you every day."
         },
         security: {
             title: "IGAMING POOLS SYSTEM",
@@ -370,7 +334,7 @@ const translations = {
             allTimeSwaps: "Всего обменов"
         },
         features: {
-            sectionTitle: "Drazze - это про развитие",
+            sectionTitle: "Реализовано за 3 месяца",
             title1: "Бонусы KPI",
             desc1: "Новая KPI-система бонусов для лидеров с ежемесячным пулом в 1 050 000 DRZ. Вознаграждение выплачивается за выполнение условий по объёмам структуры в соответствии с вашим рангом, при этом учитывается не более 40% от самой сильной ветки. Лидеры могут получать бонусы за все KPI-уровни, соответствующие их статусу и ниже.",
             title2: "Встроенный P2P-обменник",
@@ -400,7 +364,7 @@ const translations = {
         staking: {
             title: "DeFi Стейкинг",
             maxYield: "Максимальная доходность",
-            description: "Участвуйте в стейкинге токенов DRZ и получайте пассивный доход от 15% до 22% в месяц. Токены будут добываться постепенно в течение 3-4 лет через механизм DeFi стейкинга.",
+            description: "Удерживайте токены DRZ и получайте вознаграждение от 15% до 22% в месяц. DeFi-стейкинг распределяется постепенно, обеспечивая долгосрочную устойчивость и рост экосистемы DRAZZE.",
             feature1: "Высокая доходность",
             feature2: "Безопасность блокчейна",
             feature3: "Прозрачность операций"
@@ -435,6 +399,7 @@ const translations = {
             category6: "Sportsbook",
             category7: "Турниры",
             category8: "VIP-система",
+            launchLabel: "Дата открытия iGaming платформы",
             launchDate: "Февраль-Март 2026"
         },
         partners: {
@@ -452,13 +417,15 @@ const translations = {
         earn: {
             title: "Способы заработка с помощью Drazze",
             slide1Title: "Стейкинг",
-            slide1Desc: "Токены остаются в вашем кошельке, а вы получаете пассивный доход от 15 до 22% в месяц, примерно 0,6% в день. Например, 1000 долларов дает от 150 до 220 долларов прибыли в месяц.",
+            slide1Desc: "Вы получаете вознаграждение от компании удерживая токен DRZ. DeFi Стейкинг приносит от 15% до 22% в месяц и является ключевым элементом экономической модели DRAZZE, стимулируя долгосрочное участие и поддерживая стабильность рынка.",
             slide2Title: "Партнёрская программа",
-            slide2Desc: "DRAZZE позволяет получать доход 5% с первой линии и дополнительное вознаграждение до 12 уровней в глубину. Например, при регулярном росте вашей сети — если каждый участник привлекает всего по одному человеку в неделю — уже через три месяца структура может превысить 10 000 человек, создавая потенциал для высокого пассивного дохода. С ростом лидерских статусов открываются новые уровни партнёрского дохода, увеличивается прибыль от стейкинга, а статус Commander даёт доступ к еженедельным выплатам из KPI-бонусного пула.",
-            slide3Title: "KPI-пул",
-            slide3Desc: "Еженедельный KPI-пул в размере 45 000 DRZ распределяется между лидерами, закрывшими свои уровни. Статус Commander приносит в среднем около 450 DRZ ($650) в неделю. Дальнейшие ранги — Captain, General, Diamond, Legend и Marshal — последовательно увеличивают ваш доход и глубину возможностей, сохраняя при этом право на все бонусы предыдущих статусов.",
-            slide4Title: "Итог",
-            slide4Desc: "В DRAZZE ваши доходы формируются из трёх мощных источников: прибыли от стейкинга, партнёрской программы и еженедельных лидерских бонусов. Эта уникальная комбинация создаёт возможность для стабильного заработка, который может составлять от одной до сотен тысяч долларов еженедельно. Начните строить своё будущее с DRAZZE уже сегодня."
+            slide2Desc: "Зарабатывай на развитии экосистемы DRAZZE. Партнёрская модель позволяет получать вознаграждение до 12 уровней в глубину за привлечение и партнёров и холдеров.",
+            slide3Title: "KPI и лидерские бонусы",
+            slide3Desc: "DRAZZE вознаграждает активных участников. Компания заморозила 1 000 050 DRZ которые находятся в стейкинге до конца эмиссии и формируют фонд, из которого распределяются лидерские и KPI-бонусы. Выплаты зависят от выполненных показателей, оборотов и вклада в развитие экосистемы.",
+            slide4Title: "iGaming пул",
+            slide4Desc: "Чистая прибыль от iGaming направляется в пулы. Каждый пул: Имеет ограниченное количество мест (всего 210). Предоставляет исключительную долю (от 0,02% до 0,2%) в прибыли. Участники пула получают установленный процент от чистой прибыли iGaming-платформы.",
+            slide5Title: "Итог",
+            slide5Desc: "Доход в DRAZZE формируется из четырёх направлений: DeFi стейкинг, партнёрская программа, лидерские бонусы и iGaming-пулы. Это система, которая работает на вас каждый день."
         },
         security: {
             title: "СИСТЕМА IGAMING ПУЛОВ",
@@ -504,7 +471,7 @@ const translations = {
 function initLanguageSwitcher() {
     const languageSelector = document.getElementById('languageSelector');
     const languageDropdown = document.getElementById('languageDropdown');
-    const languageCurrent = document.querySelector('.language-current');
+    const languageCurrent = document.querySelectorAll('.language-current');
     const languageOptions = document.querySelectorAll('.language-option');
     
     if (!languageSelector || !languageDropdown) return;
@@ -550,23 +517,20 @@ function switchLanguage(lang) {
     
     // Update navigation
     const navLinks = document.querySelectorAll('.nav-link');
-    if (navLinks.length >= 6) {
+    if (navLinks.length >= 5) {
         navLinks[0].textContent = langData.nav.development;
         navLinks[1].textContent = langData.nav.tokenomics;
         navLinks[2].textContent = langData.nav.earn;
-        navLinks[3].textContent = langData.nav.pools;
-        navLinks[4].textContent = langData.nav.igaming;
-        navLinks[5].textContent = langData.nav.faq;
+        navLinks[3].textContent = langData.nav.igaming;
+        navLinks[4].textContent = langData.nav.faq;
     }
     
     // Update hero section
     const heroTitle = document.querySelector('.hero-title .title-line:first-child');
-    const heroSubtitle = document.querySelector('.hero-title .subtitle');
     const joinBtn = document.querySelector('.btn-join');
     const buyBtn = document.querySelector('.btn-buy');
     
-    if (heroTitle) heroTitle.textContent = langData.hero.title;
-    if (heroSubtitle) heroSubtitle.textContent = langData.hero.subtitle;
+    if (heroTitle) heroTitle.textContent = 'DRAZZE';
     if (joinBtn) joinBtn.textContent = langData.hero.join;
     if (buyBtn) buyBtn.textContent = langData.hero.buy;
     
@@ -702,6 +666,8 @@ function switchLanguage(lang) {
         gameCategoryBtns[6].textContent = langData.igaming.category7;
         gameCategoryBtns[7].textContent = langData.igaming.category8;
     }
+    const igamingLaunchLabel = document.querySelector('.igaming-launch-label');
+    if (igamingLaunchLabel) igamingLaunchLabel.textContent = langData.igaming.launchLabel;
     const igamingLaunchDate = document.querySelector('.igaming-launch-date');
     if (igamingLaunchDate) igamingLaunchDate.textContent = langData.igaming.launchDate;
     
@@ -733,7 +699,7 @@ function switchLanguage(lang) {
     const earnSlideTitles = document.querySelectorAll('.earn-slide-title');
     const earnSlideDescriptions = document.querySelectorAll('.earn-slide-description');
     
-    if (earnSlideTitles.length >= 4 && earnSlideDescriptions.length >= 4) {
+    if (earnSlideTitles.length >= 5 && earnSlideDescriptions.length >= 5) {
         earnSlideTitles[0].textContent = langData.earn.slide1Title;
         earnSlideDescriptions[0].textContent = langData.earn.slide1Desc;
         earnSlideTitles[1].textContent = langData.earn.slide2Title;
@@ -742,6 +708,10 @@ function switchLanguage(lang) {
         earnSlideDescriptions[2].textContent = langData.earn.slide3Desc;
         earnSlideTitles[3].textContent = langData.earn.slide4Title;
         earnSlideDescriptions[3].textContent = langData.earn.slide4Desc;
+        if (earnSlideTitles[4] && earnSlideDescriptions[4]) {
+            earnSlideTitles[4].textContent = langData.earn.slide5Title;
+            earnSlideDescriptions[4].textContent = langData.earn.slide5Desc;
+        }
     }
     
     // Update security section
@@ -836,10 +806,10 @@ function switchLanguage(lang) {
     });
     
     // Update language selector text
-    const languageCurrent = document.querySelector('.language-current');
-    if (languageCurrent) {
-        languageCurrent.textContent = lang === 'en' ? 'Eng' : 'Рус';
-    }
+    const languageCurrents = document.querySelectorAll('.language-current');
+    languageCurrents.forEach(current => {
+        current.textContent = lang === 'en' ? 'Eng' : 'Рус';
+    });
     
     // Update HTML lang attribute
     document.documentElement.lang = lang;
@@ -1365,28 +1335,83 @@ if (document.readyState === 'loading') {
 function initMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const menuOverlay = document.getElementById('menuOverlay');
     
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+    if (mobileMenuToggle && navMenu && menuOverlay) {
         
-        // Close menu when clicking on a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+        function openMenu() {
+            mobileMenuToggle.classList.add('active');
+            navMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
+        function closeMenu() {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
+        
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
             }
+        });
+        
+        // Handle navigation links clicks - use direct event listeners
+        function handleNavClick(e) {
+            const link = e.target.closest('.nav-link');
+            if (!link) return;
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const href = link.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
+            
+            const target = document.querySelector(href);
+            if (!target) return;
+            
+            // Close menu first
+            closeMenu();
+            
+            // Restore body scroll
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            
+            // Scroll after menu animation
+            setTimeout(() => {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'nearest'
+                    });
+                }
+            }, 300);
+        }
+        
+        // Attach handler to menu container
+        navMenu.addEventListener('click', handleNavClick);
+        
+        // Also attach directly to links as backup
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', handleNavClick);
+        });
+        
+        // Close menu when clicking overlay
+        menuOverlay.addEventListener('click', function() {
+            closeMenu();
         });
     }
 }
