@@ -262,7 +262,7 @@ const translations = {
             forWhom4: "For those who want to be part of this innovative ecosystem"
         },
         earn: {
-            title: "Ways to Earn with Drazze",
+            title: "Ways to Earn in Drazze Ecosystem",
             slide1Title: "Staking",
             slide1Desc: "You receive rewards from the company by holding DRZ token. DeFi Staking brings from 15% to 22% per month and is a key element of the DRAZZE economic model, encouraging long-term participation and supporting market stability.",
             slide2Title: "Affiliate Program",
@@ -415,7 +415,7 @@ const translations = {
             forWhom4: "Для тех, кто хочет быть частью этой инновационной экосистемы"
         },
         earn: {
-            title: "Способы заработка с помощью Drazze",
+            title: "Способы заработка в экосистеме Drazze",
             slide1Title: "Стейкинг",
             slide1Desc: "Вы получаете вознаграждение от компании удерживая токен DRZ. DeFi Стейкинг приносит от 15% до 22% в месяц и является ключевым элементом экономической модели DRAZZE, стимулируя долгосрочное участие и поддерживая стабильность рынка.",
             slide2Title: "Партнёрская программа",
